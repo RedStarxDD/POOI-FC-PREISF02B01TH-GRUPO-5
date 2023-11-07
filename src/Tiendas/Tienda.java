@@ -1,12 +1,17 @@
 package Tiendas;
 
-public class Tiendas {
+import java.util.List;
+
+import Carritocompras.Horario;
+import Carritocompras.Producto;
+
+public class Tienda {
 	private String nombre;
 	private String pasillo;
 	private Horario horario;
 	private List<Producto> productos;
 	
-	public Tiendas(String nombre, String pasillo, Horario horario, List<Producto> productos) {
+	public Tienda(String nombre, String pasillo, Horario horario, List<Producto> productos) {
 		super();
 		this.nombre = nombre;
 		this.pasillo = pasillo;
