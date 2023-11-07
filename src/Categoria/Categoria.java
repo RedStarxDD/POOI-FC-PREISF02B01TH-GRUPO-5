@@ -3,57 +3,59 @@ import java.util.*;
 
 
 public class Categoria {
-	public int id;
-	public String nombre;
-	public String descripcion;
+	private int id;
+	private String nombre;
+	private String descripcion;
 	
-	    private static ArrayList<String> productos;
-	    
-		public Categoria(int id, String nombre, String descripcion) {
-			super();
-			this.id = id;
-			this.nombre = nombre;
-			this.descripcion = descripcion;
-			Categoria.productos=new ArrayList<>();
-		}
+    private ArrayList<Productos> productos;
+    
 
-		public int getId() {
-			return id;
-		}
+	public Categoria(int id, String nombre, String descripcion, ArrayList<Productos> productos) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
+		this.productos = productos;
+	}
 
-		public void setId(int id) {
-			this.id = id;
-		}
+	public int getId() {
+		return id;
+	}
 
-		public String getNombre() {
-			return nombre;
-		}
+	public void setId(int id) {
+		this.id = id;
+	}
 
-		public void setNombre(String nombre) {
-			this.nombre = nombre;
-		}
+	public String getNombre() {
+		return nombre;
+	}
 
-		public String getDescripcion() {
-			return descripcion;
-		}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-		public void setDescripcion(String descripcion) {
-			this.descripcion = descripcion;
-		}
+	public String getDescripcion() {
+		return descripcion;
+	}
 
-		public static ArrayList<String> getProductos() {
-			return productos;
-		}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 
-		public void agregarProducto(String producto) {
-			this.productos.add(producto);
-		}
+	public static ArrayList<Productos> getProductos() {
+		return productos;
+	}
 
-		@Override
-		public String toString () {
-			
-			return "Categoria[id=" +getId()+ ",nombre"+ getNombre()+ ",descriopcion="+getDescripcion()+ "]";
-		}
+	public void agregarProducto(String producto) {
+		this.productos.add(producto);
+	}
+
+	@Override
+	public String toString () {
+		
+		return "Categoria[id=" +getId()+ ",nombre"+ getNombre()+ ",descriopcion="+getDescripcion()+ "]";
+	}
+}
 	}
 
 	
