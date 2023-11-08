@@ -8,10 +8,10 @@ public class Usuario {
 	private int genero;
 	private Date nacimiento;
 	
-	public Usuario(int idUsuario, String nombre, String apellidos, String correo, String dni, String celular,
+	public Usuario(int iD_USUARIO, String nombre, String apellidos, String correo, String dni, String celular,
 			int genero, Date nacimiento) {
 		super();
-		this.ID_USUARIO = idUsuario;
+		ID_USUARIO = iD_USUARIO;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.correo = correo;
