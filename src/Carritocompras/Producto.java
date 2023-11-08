@@ -2,12 +2,12 @@ package Carritocompras;
 
 public class Producto {
 
-    private int ID_PRODUCTO;
+    private final int ID_PRODUCTO;
     private String nombre;
-    private float precio;
+    private double precio;
     private String descripción;
 
-    public Producto(int ID_PRODUCTO, String nombre, float precio, String descripción) {
+    public Producto(int ID_PRODUCTO, String nombre, double precio, String descripción) {
         this.ID_PRODUCTO = ID_PRODUCTO;
         this.nombre = nombre;
         this.precio = precio;
@@ -18,10 +18,6 @@ public class Producto {
         return ID_PRODUCTO;
     }
 
-    public void setID_PRODUCTO(int ID_PRODUCTO) {
-        this.ID_PRODUCTO = ID_PRODUCTO;
-    }
-
     public String getNombre() {
         return nombre;
     }
@@ -30,11 +26,11 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 

@@ -1,49 +1,61 @@
 package paginaPrincipal;
 
+import java.util.ArrayList;
+
+import Carritocompras.Carritodecompras;
+import Carritocompras.Horario;
+import Categoria.Categoria;
+import Tiendas.Tienda;
+import perfil.Usuario;
+
 public class Paginaprincipal {
 	
-	private List <Categoria> categorias;
-	private Cliente cliente;
-	private Carrito carrito;
-	private List <Tienda> tienda;
+	private ArrayList<Categoria> categorias;
+	private Usuario usuario;
+	private Carritodecompras carrito;
+	private ArrayList<Tienda> tiendas;
 	private Horario horario;
 	
-	public Paginaprincipal(List<Categoria> categorias, Cliente cliente, Carrito carrito, List <Tienda> tienda, Horario horario) {
+	public Paginaprincipal(ArrayList<Categoria> categorias, Usuario usuario, Carritodecompras carrito,
+			ArrayList<Tienda> tienda, Horario horario) {
+		super();
 		this.categorias = categorias;
-		this.cliente = cliente;
+		this.usuario = usuario;
 		this.carrito = carrito;
-		this.tienda= tienda;
+		this.tiendas = tienda;
 		this.horario = horario;
 	}
 
-	public List<Categoria> getCategorias() {
+	public ArrayList<Categoria> getCategorias() {
 		return categorias;
 	}
 
-	public void setCategorias(List<Categoria> categorias) {
+	public void setCategorias(ArrayList<Categoria> categorias) {
 		this.categorias = categorias;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
-	public Carrito getCarrito() {
+	public Carritodecompras getCarrito() {
 		return carrito;
 	}
 
-	public void setCarrito(Carrito carrito) {
+	public void setCarrito(Carritodecompras carrito) {
 		this.carrito = carrito;
 	}
-	public List<Tienda> getTienda() {
-		return tienda;
+
+	public ArrayList<Tienda> getTienda() {
+		return tiendas;
 	}
-	public void setTienda(List<Tienda> tienda) {
-		this.tienda = tienda;
+
+	public void setTienda(ArrayList<Tienda> tienda) {
+		this.tiendas = tienda;
 	}
 
 	public Horario getHorario() {
@@ -53,6 +65,21 @@ public class Paginaprincipal {
 	public void setHorario(Horario horario) {
 		this.horario = horario;
 	}
-
+	
+	public void agregarCategorias(Categoria categoria) {
+		categorias.add(categoria);
 	}
+	
+	public void agregarTiendas(Tienda tienda) {
+		tiendas.add(tienda);
+	}
+
+	@Override
+	public String toString() {
+		return "Paginaprincipal [categorias=" + categorias + ",\nusuario=" + usuario + ",\ncarrito=" + carrito
+				+ ",\ntiendas=" + tiendas + ",\nhorario=" + horario + "]";
+	}
+	
+	
+}
 

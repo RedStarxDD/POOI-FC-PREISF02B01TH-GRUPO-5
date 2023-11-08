@@ -58,5 +58,12 @@ public class Tienda {
     public void eliminarProducto(Producto item) {
         productos.remove(item);
     }
+
+	@Override
+	public String toString() {
+		return "Tienda [nombre=" + nombre + ", pasillo=" + pasillo + ", horario=" + horario + ", productos=" + productos
+				+ "]";
+	}
 	
+    
 }

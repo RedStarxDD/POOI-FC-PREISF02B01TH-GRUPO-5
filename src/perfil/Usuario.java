@@ -66,6 +66,13 @@ public class Usuario {
 	public int getID_USUARIO() {
 		return ID_USUARIO;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [ID_USUARIO=" + ID_USUARIO + ", nombre=" + nombre + ", apellidos=" + apellidos + ", correo="
+				+ correo + ", dni=" + dni + ", celular=" + celular + ", genero=" + genero + ", nacimiento=" + nacimiento
+				+ "]";
+	}
 	
 	
 }

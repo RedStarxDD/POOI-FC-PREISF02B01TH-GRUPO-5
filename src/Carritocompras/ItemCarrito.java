@@ -9,7 +9,7 @@ public class ItemCarrito {
     public void Carrito(Producto producto, int cantidad) {
         this.producto = producto;
         this.cantidad = cantidad;
-        this.subtotal = producto.getPrecio() * cantidad;
+        //this.subtotal = producto.getPrecio() * cantidad;
     }
 
     public Producto getProducto() {
@@ -35,13 +35,6 @@ public class ItemCarrito {
     public void setSubtotal(float subtotal) {
         this.subtotal = subtotal;
     }
-
-    public float obtenerSubtotal() {
-        return producto.getPrecio() * cantidad;
-    
-
-
-	}
 
 
 }
