@@ -2,18 +2,10 @@ package paginaPrincipal;
 
 import java.util.ArrayList;
 
-import carritoCompras.Carritodecompras;
-import carritoCompras.Horario;
-import carritoCompras.Producto;
+import carritocompras.Carritodecompras;
+import carritocompras.Horario;
 import categoria.Categoria;
-import tienda.Tienda;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-import javax.swing.JOptionPane;
+import tiendas.Tienda;
 import perfil.Usuario;
 
 public class Paginaprincipal {
@@ -32,9 +24,6 @@ public class Paginaprincipal {
 		this.carrito = carrito;
 		this.tiendas = tienda;
 		this.horario = horario;
-                cargarArchivo("categorias", 1);
-                cargarArchivo("tiendas", 2);
-                cargarArchivo("productos", 3);
 	}
 
 	public ArrayList<Categoria> getCategorias() {
@@ -91,75 +80,6 @@ public class Paginaprincipal {
 				+ ",\ntiendas=" + tiendas + ",\nhorario=" + horario + "]";
 	}
 	
-    private void readFromInputStream(InputStream inputStream, int pos) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-        String linea;
-        while ((linea = br.readLine()) != null) {
-            StringTokenizer st = new StringTokenizer(linea, ";");
-            switch (pos) {
-                case 1:
-                crearCategoria(st);                 
-                    break;
-                case 2:
-                crearTienda(st);                 
-                    break;
-                case 3:
-                crearProducto(st);                 
-                    break;
-                default:
-                    throw new AssertionError();
-            }
-        }
-        br.close();
-    }
-
-	// M�todo que a�adir a los estudiantes del archivo .txt en el arrayList estudiantes.
-    private void crearCategoria(StringTokenizer st){
-        int id=Integer.parseInt(st.nextToken().strip());
-        String nombre=st.nextToken().strip();
-        String descripcion=st.nextToken().strip();
-        
-        Categoria categoria=new Categoria(id, nombre, descripcion, null);
-        categorias.add(categoria);
-    }
-    private void crearTienda(StringTokenizer st){
-        int id=Integer.parseInt(st.nextToken().strip());
-        String nombre=st.nextToken().strip();
-        String pasillo=st.nextToken().strip();
-        
-        Tienda tienda=new Tienda(id, nombre, pasillo, null);
-        agregarTiendas(tienda);
-    }
-    private void crearProducto(StringTokenizer st){
-        int id=Integer.parseInt(st.nextToken().strip());
-        String nombre=st.nextToken().strip();
-        double precio=Double.parseDouble(st.nextToken().strip());
-        String descripcion=st.nextToken().strip();
-        String tienda=st.nextToken().strip();
-        
-        Producto producto=new Producto(id, nombre, precio, descripcion);
-        for (Tienda t : tiendas) {
-            if(t.getNombre().equalsIgnoreCase(tienda)){
-                t.agregarProducto(producto);
-            }
-        }
-    }
-
-    // M�todos para manipular el archivo de texto
-    private void cargarArchivo(String nombre, int pos) {
-        try {
-            File file = new File("./src/"+nombre+".txt");
-            Class<Paginaprincipal> clazz = Paginaprincipal.class;
-            InputStream inputStream = clazz.getResourceAsStream("/"+nombre+".txt");
-            if (file.exists()) {
-                readFromInputStream(inputStream, pos);
-            } else
-                JOptionPane.showMessageDialog(null,
-                        "El archivo txt no existe");
-        } catch (Exception x) {
-            JOptionPane.showMessageDialog(null, "Se produjo un error= " + x);
-        }
-    }
 	
 }
 
