@@ -1,18 +1,24 @@
 package main;
 
+import carritoCompras.Carritodecompras;
+import carritoCompras.Direccion;
 import java.util.ArrayList;
 import java.util.Date;
 
 import carritoCompras.Horario;
+import carritoCompras.ItemCarrito;
+import carritoCompras.JCarrito;
 import carritoCompras.Producto;
 import categoria.Categoria;
 import tienda.Tienda;
+import java.awt.EventQueue;
+import paginaPrincipal.PaginaP;
 import paginaPrincipal.Paginaprincipal;
 import perfil.Usuario;
 
 public class Main {
 	public static void main(String[] args) {
-		Producto polloFrito=new Producto(1, "Pollo frito", 29.9, "6 piezas de pollo crujiente"),
+		/*Producto polloFrito=new Producto(1, "Pollo frito", 29.9, "6 piezas de pollo crujiente"),
 				wrapper=new Producto(2, "Wrapper", 19.9, "Tortilla de pollo frito"),
 				zapatilla=new Producto(3, "Zapatilla Nike", 199.9, "Zapatillas Nike modelo 2023"),
 				pantalon=new Producto(4, "Pantalón Levi's", 95, "Pantalón jean");
@@ -25,20 +31,24 @@ public class Main {
 		ripley.agregarProducto(zapatilla);
 		ripley.agregarProducto(pantalon);
 		
-		Categoria restaurantes=new Categoria(1, "Restaurantes", "Pollo, hamburguesas, etc", new ArrayList<Tienda>());
-		restaurantes.agregarTienda(kfc);
-		
-		Categoria tiendasPorDepartamento=new Categoria(2, "Tiendas por departamento", "Tiendas de ropa, accesorios, etc", new ArrayList<Tienda>());
-		tiendasPorDepartamento.agregarTienda(ripley);
-		
-		Usuario usuario=new Usuario(1, "Dante", "Uchofen", "dante.uchofen@usil.pe", "72750855", "960575676", 1, new Date());
-		
-		Paginaprincipal pagina=new Paginaprincipal(new ArrayList<Categoria>(), usuario, null, new ArrayList<Tienda>(), new Horario(new Date(), new Date(), new Date()));
 		pagina.agregarCategorias(restaurantes);
 		pagina.agregarCategorias(tiendasPorDepartamento);
 		pagina.agregarTiendas(kfc);
 		pagina.agregarTiendas(ripley);
 		
-		System.out.println(pagina.toString());
+                ItemCarrito item=new ItemCarrito(polloFrito, 2);
+                Direccion dir=new Direccion("calle", "Lima", "15432");
+                Horario hor=new Horario(new Date(), new Date(), new Date());
+                Carritodecompras carrito=new Carritodecompras(0, dir, hor);*/
+                
+   		Usuario usuario=new Usuario(1, "Dante", "Uchofen", "dante.uchofen@usil.pe", "72750855", "960575676", 1, new Date());		
+		Paginaprincipal pagina=new Paginaprincipal(new ArrayList<Categoria>(), usuario, null, new ArrayList<Tienda>(), new Horario(new Date(), new Date(), new Date()));
+  		System.out.println(pagina.toString());
+                           
+                EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        new PaginaP().setVisible(true);
+                    }
+            });
 	}
 }

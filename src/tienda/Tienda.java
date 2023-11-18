@@ -4,52 +4,59 @@ import java.util.List;
 
 import carritoCompras.Horario;
 import carritoCompras.Producto;
+import java.util.ArrayList;
 
 public class Tienda {
-	private String nombre;
-	private String pasillo;
-	private Horario horario;
-	private List<Producto> productos;
-	
-	public Tienda(String nombre, String pasillo, Horario horario, List<Producto> productos) {
-		super();
-		this.nombre = nombre;
-		this.pasillo = pasillo;
-		this.horario = horario;
-		this.productos = productos;
-	}
 
-	public String getNombre() {
-		return nombre;
-	}
+    private final int ID_TIENDA;
+    private String nombre;
+    private String pasillo;
+    private Horario horario;
+    private ArrayList<Producto> productos;
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public Tienda(int ID_TIENDA, String nombre, String pasillo, Horario horario) {
+        this.ID_TIENDA = ID_TIENDA;
+        this.nombre = nombre;
+        this.pasillo = pasillo;
+        this.horario = horario;
+        this.productos = new ArrayList<Producto>();
+    }
 
-	public String getPasillo() {
-		return pasillo;
-	}
+    public int getID_TIENDA() {
+        return ID_TIENDA;
+    }
 
-	public void setPasillo(String pasillo) {
-		this.pasillo = pasillo;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public Horario getHorario() {
-		return horario;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setHorario(Horario horario) {
-		this.horario = horario;
-	}
+    public String getPasillo() {
+        return pasillo;
+    }
 
-	public List<Producto> getProductos() {
-		return productos;
-	}
+    public void setPasillo(String pasillo) {
+        this.pasillo = pasillo;
+    }
 
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
-	}
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
+    public ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(ArrayList<Producto> productos) {
+        this.productos = productos;
+    }
 
     public void agregarProducto(Producto item) {
         productos.add(item);
@@ -59,11 +66,10 @@ public class Tienda {
         productos.remove(item);
     }
 
-	@Override
-	public String toString() {
-		return "Tienda [nombre=" + nombre + ", pasillo=" + pasillo + ", horario=" + horario + ", productos=" + productos
-				+ "]";
-	}
-	
-    
+    @Override
+    public String toString() {
+        return "Tienda [nombre=" + nombre + ", pasillo=" + pasillo + ", horario=" + horario + ", productos=" + productos
+                + "]";
+    }
+
 }

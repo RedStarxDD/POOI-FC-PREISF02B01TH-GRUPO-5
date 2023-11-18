@@ -1,11 +1,14 @@
 package carritoCompras;
 
+import tienda.Tienda;
+
 public class Producto {
 
     private final int ID_PRODUCTO;
     private String nombre;
     private double precio;
     private String descripción;
+    private Tienda tienda;
 
     public Producto(int ID_PRODUCTO, String nombre, double precio, String descripción) {
         this.ID_PRODUCTO = ID_PRODUCTO;

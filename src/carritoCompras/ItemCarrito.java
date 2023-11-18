@@ -4,14 +4,14 @@ public class ItemCarrito {
 
     private Producto producto;
     private int cantidad;
-    private float subtotal;
+    private double subtotal;
 
-    public void Carrito(Producto producto, int cantidad) {
+    public ItemCarrito(Producto producto, int cantidad) {
         this.producto = producto;
         this.cantidad = cantidad;
-        //this.subtotal = producto.getPrecio() * cantidad;
+        this.subtotal = producto.getPrecio() * cantidad;
     }
-
+    
     public Producto getProducto() {
         return producto;
     }
@@ -28,13 +28,8 @@ public class ItemCarrito {
         this.cantidad = cantidad;
     }
 
-    public float getSubtotal() {
+    public double getSubtotal() {
         return subtotal;
     }
-
-    public void setSubtotal(float subtotal) {
-        this.subtotal = subtotal;
-    }
-
 
 }

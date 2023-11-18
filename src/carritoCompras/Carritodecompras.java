@@ -7,12 +7,14 @@ public class Carritodecompras {
 
     private List<ItemCarrito> items;
     private double total;
-    private Dirección direccionEntrega;
+    private Direccion direccionEntrega;
     private Horario horarioEntrega;
 
-    public void Carrito() {
-        this.items = new ArrayList<>();
-        this.total = 0.0;
+    public Carritodecompras(double total, Direccion direccionEntrega, Horario horarioEntrega) {
+        this.items = new ArrayList<ItemCarrito>();
+        this.total = total;
+        this.direccionEntrega = direccionEntrega;
+        this.horarioEntrega = horarioEntrega;
     }
 
     public List<ItemCarrito> getItems() {
@@ -31,11 +33,11 @@ public class Carritodecompras {
         this.total = total;
     }
 
-    public Dirección getDireccionEntrega() {
+    public Direccion getDireccionEntrega() {
         return direccionEntrega;
     }
 
-    public void setDireccionEntrega(Dirección direccionEntrega) {
+    public void setDireccionEntrega(Direccion direccionEntrega) {
         this.direccionEntrega = direccionEntrega;
     }
 

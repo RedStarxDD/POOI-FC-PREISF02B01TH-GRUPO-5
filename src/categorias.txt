@@ -1,0 +1,15 @@
+1;Marcas de Rambla;a
+2;Tecnología;a
+3;Muebles;a
+4;Dormitorio;a
+5;Deportes;a
+6;Moda Mujer y Hombre;a
+7;Calzado;a
+8;Belleza;a
+9;Infantil;a
+10;Salud y Bienestar;a
+11;Oficina y útiles;a
+12;Herramientas;a
+13;Mejoramiento del Hogar;a
+14;Supermercado;a
+15;Otras categorías;a
