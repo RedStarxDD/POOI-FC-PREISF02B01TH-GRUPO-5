@@ -3,10 +3,10 @@ package main;
 import java.util.ArrayList;
 import java.util.Date;
 
-import Carritocompras.Horario;
-import Carritocompras.Producto;
-import Categoria.Categoria;
-import Tiendas.Tienda;
+import carritoCompras.Horario;
+import carritoCompras.Producto;
+import categoria.Categoria;
+import tienda.Tienda;
 import paginaPrincipal.Paginaprincipal;
 import perfil.Usuario;
 

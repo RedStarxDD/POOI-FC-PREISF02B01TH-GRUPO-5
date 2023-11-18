@@ -2,10 +2,10 @@ package paginaPrincipal;
 
 import java.util.ArrayList;
 
-import carritocompras.Carritodecompras;
-import carritocompras.Horario;
+import carritoCompras.Carritodecompras;
+import carritoCompras.Horario;
 import categoria.Categoria;
-import tiendas.Tienda;
+import tienda.Tienda;
 import perfil.Usuario;
 
 public class Paginaprincipal {
