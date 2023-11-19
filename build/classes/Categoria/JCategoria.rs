@@ -1,0 +1,13 @@
+Categorias.JCategoria$8
+Categorias.JCategoria$7
+Categorias.JCategoria$6
+Categorias.JCategoria$5
+Categorias.JCategoria$12
+Categorias.JCategoria$11
+Categorias.JCategoria$9
+Categorias.JCategoria$10
+Categorias.JCategoria$4
+Categorias.JCategoria$3
+Categorias.JCategoria$2
+Categorias.JCategoria$1
+Categorias.JCategoria

@@ -7,14 +7,16 @@ import java.util.Date;
 
 import carritoCompras.Horario;
 import carritoCompras.ItemCarrito;
-import carritoCompras.JCarrito;
+import gui.JCarrito;
 import carritoCompras.Producto;
 import categoria.Categoria;
 import tienda.Tienda;
 import java.awt.EventQueue;
-import paginaPrincipal.PaginaP;
+import gui.JPaginaPrincipal;
 import paginaPrincipal.Paginaprincipal;
+import gui.JPerfil;
 import perfil.Usuario;
+import tienda.Tiendass;
 
 public class Main {
 	public static void main(String[] args) {
@@ -47,7 +49,8 @@ public class Main {
                            
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        new PaginaP().setVisible(true);
+                        //new JPaginaPrincipal(pagina).setVisible(true);
+                        new JPaginaPrincipal(pagina).setVisible(true);
                     }
             });
 	}
