@@ -28,10 +28,13 @@ public class JHeader extends javax.swing.JFrame {
         this.usuario=pagina.getUsuario();
         JPaginaPrincipal p=new JPaginaPrincipal(pagina);
         mostrarPanel(p.getContent());
+        
+        cbCategorias.addItem(pagina.getCategorias().get(0).getNombre());
     }
     
     private void mostrarPanel(JPanel panel){
         panel.setLocation(0,0);
+        panel.setSize(720, 382);
         
         panelBody.removeAll();
         panelBody.add(panel, BorderLayout.CENTER);
@@ -55,7 +58,7 @@ public class JHeader extends javax.swing.JFrame {
         btnCuenta = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        Categorías = new javax.swing.JComboBox<>();
+        cbCategorias = new javax.swing.JComboBox<>();
         jButton4 = new javax.swing.JButton();
         panelBody = new javax.swing.JPanel();
 
@@ -141,10 +144,10 @@ public class JHeader extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Categorías.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categorías", "Tecnología", "Muebles", "Dormitorios", "Deportes", "ModaMujer y Hombre", "Calzado", "Belleza", "Infantil", "Salud y Bienestar", "Oficina y Útiles", "Herramientas", "Mejoramiento del Hogar", "Supermercado", "Otras Categorías" }));
-        Categorías.addActionListener(new java.awt.event.ActionListener() {
+        cbCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categorías" }));
+        cbCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CategoríasActionPerformed(evt);
+                cbCategoriasActionPerformed(evt);
             }
         });
 
@@ -164,7 +167,7 @@ public class JHeader extends javax.swing.JFrame {
                 .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelHeaderLayout.createSequentialGroup()
-                        .addComponent(Categorías, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton4)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -177,10 +180,12 @@ public class JHeader extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Categorías, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        panelBody.setPreferredSize(new java.awt.Dimension(720, 382));
 
         javax.swing.GroupLayout panelBodyLayout = new javax.swing.GroupLayout(panelBody);
         panelBody.setLayout(panelBodyLayout);
@@ -190,7 +195,7 @@ public class JHeader extends javax.swing.JFrame {
         );
         panelBodyLayout.setVerticalGroup(
             panelBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 388, Short.MAX_VALUE)
+            .addGap(0, 382, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -198,14 +203,15 @@ public class JHeader extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelHeader, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelBody, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(panelHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBody, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -231,9 +237,10 @@ public class JHeader extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void CategoríasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoríasActionPerformed
+    private void cbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CategoríasActionPerformed
+
+    }//GEN-LAST:event_cbCategoriasActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -242,7 +249,7 @@ public class JHeader extends javax.swing.JFrame {
     private void imgLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgLogoMouseClicked
         // TODO add your handling code here:
         JPaginaPrincipal p=new JPaginaPrincipal(pagina);
-        mostrarPanel(p.getContent());       
+        mostrarPanel(p.getContent());
     }//GEN-LAST:event_imgLogoMouseClicked
 
     /**
@@ -281,8 +288,8 @@ public class JHeader extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> Categorías;
     private javax.swing.JButton btnCuenta;
+    private javax.swing.JComboBox<String> cbCategorias;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
