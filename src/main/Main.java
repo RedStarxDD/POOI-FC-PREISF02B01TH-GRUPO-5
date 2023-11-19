@@ -10,6 +10,7 @@ import carritoCompras.ItemCarrito;
 import gui.JCarrito;
 import carritoCompras.Producto;
 import categoria.Categoria;
+import gui.JHeader;
 import tienda.Tienda;
 import java.awt.EventQueue;
 import gui.JPaginaPrincipal;
@@ -49,8 +50,7 @@ public class Main {
                            
                 EventQueue.invokeLater(new Runnable() {
                     public void run() {
-                        //new JPaginaPrincipal(pagina).setVisible(true);
-                        new JPaginaPrincipal(pagina).setVisible(true);
+                        new JHeader(pagina).setVisible(true);
                     }
             });
 	}
