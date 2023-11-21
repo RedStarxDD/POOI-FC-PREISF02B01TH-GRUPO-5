@@ -12,85 +12,88 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Comparator;
+import java.util.List;
 import java.util.StringTokenizer;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import perfil.Usuario;
 
 public class Paginaprincipal {
-	
-	private ArrayList<Categoria> categorias;
-	private Usuario usuario;
-	private Carritodecompras carrito;
-	private ArrayList<Tienda> tiendas;
-	private Horario horario;
-	
-	public Paginaprincipal(ArrayList<Categoria> categorias, Usuario usuario, Carritodecompras carrito,
-			ArrayList<Tienda> tienda, Horario horario) {
-		super();
-		this.categorias = categorias;
-		this.usuario = usuario;
-		this.carrito = carrito;
-		this.tiendas = tienda;
-		this.horario = horario;
-                cargarArchivo("categorias", 1);
-                cargarArchivo("tiendas", 2);
-                cargarArchivo("productos", 3);
-	}
 
-	public ArrayList<Categoria> getCategorias() {
-		return categorias;
-	}
+    private ArrayList<Categoria> categorias;
+    private Usuario usuario;
+    private Carritodecompras carrito;
+    private ArrayList<Tienda> tiendas;
+    private Horario horario;
 
-	public void setCategorias(ArrayList<Categoria> categorias) {
-		this.categorias = categorias;
-	}
+    public Paginaprincipal(ArrayList<Categoria> categorias, Usuario usuario, Carritodecompras carrito,
+            ArrayList<Tienda> tienda, Horario horario) {
+        super();
+        this.categorias = categorias;
+        this.usuario = usuario;
+        this.carrito = carrito;
+        this.tiendas = tienda;
+        this.horario = horario;
+        cargarArchivo("categorias", 1);
+        cargarArchivo("tiendas", 2);
+        cargarArchivo("productos", 3);
+    }
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    public ArrayList<Categoria> getCategorias() {
+        return categorias;
+    }
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public void setCategorias(ArrayList<Categoria> categorias) {
+        this.categorias = categorias;
+    }
 
-	public Carritodecompras getCarrito() {
-		return carrito;
-	}
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-	public void setCarrito(Carritodecompras carrito) {
-		this.carrito = carrito;
-	}
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-	public ArrayList<Tienda> getTienda() {
-		return tiendas;
-	}
+    public Carritodecompras getCarrito() {
+        return carrito;
+    }
 
-	public void setTienda(ArrayList<Tienda> tienda) {
-		this.tiendas = tienda;
-	}
+    public void setCarrito(Carritodecompras carrito) {
+        this.carrito = carrito;
+    }
 
-	public Horario getHorario() {
-		return horario;
-	}
+    public ArrayList<Tienda> getTiendas() {
+        return tiendas;
+    }
 
-	public void setHorario(Horario horario) {
-		this.horario = horario;
-	}
-	
-	public void agregarCategorias(Categoria categoria) {
-		categorias.add(categoria);
-	}
-	
-	public void agregarTiendas(Tienda tienda) {
-		tiendas.add(tienda);
-	}
+    public void setTiendas(ArrayList<Tienda> tienda) {
+        this.tiendas = tienda;
+    }
 
-	@Override
-	public String toString() {
-		return "Paginaprincipal [categorias=" + categorias + ",\nusuario=" + usuario + ",\ncarrito=" + carrito
-				+ ",\ntiendas=" + tiendas + ",\nhorario=" + horario + "]";
-	}
-	
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+
+    public void agregarCategorias(Categoria categoria) {
+        categorias.add(categoria);
+    }
+
+    public void agregarTiendas(Tienda tienda) {
+        tiendas.add(tienda);
+    }
+
+    @Override
+    public String toString() {
+        return "Paginaprincipal [categorias=" + categorias + ",\nusuario=" + usuario + ",\ncarrito=" + carrito
+                + ",\ntiendas=" + tiendas + ",\nhorario=" + horario + "]";
+    }
+
     private void readFromInputStream(InputStream inputStream, int pos) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
         String linea;
@@ -98,13 +101,13 @@ public class Paginaprincipal {
             StringTokenizer st = new StringTokenizer(linea, ";");
             switch (pos) {
                 case 1:
-                crearCategoria(st);                 
+                    crearCategoria(st);
                     break;
                 case 2:
-                crearTienda(st);                 
+                    crearTienda(st);
                     break;
                 case 3:
-                crearProducto(st);                 
+                    crearProducto(st);
                     break;
                 default:
                     throw new AssertionError();
@@ -113,33 +116,34 @@ public class Paginaprincipal {
         br.close();
     }
 
-	// M�todo que a�adir a los estudiantes del archivo .txt en el arrayList estudiantes.
-    private void crearCategoria(StringTokenizer st){
-        int id=Integer.parseInt(st.nextToken().strip());
-        String nombre=st.nextToken().strip();
-        String descripcion=st.nextToken().strip();
-        
-        Categoria categoria=new Categoria(id, nombre, descripcion, null);
+    // M�todo que a�adir a los estudiantes del archivo .txt en el arrayList estudiantes.
+    private void crearCategoria(StringTokenizer st) {
+        int id = Integer.parseInt(st.nextToken().strip());
+        String nombre = st.nextToken().strip();
+        String descripcion = st.nextToken().strip();
+
+        Categoria categoria = new Categoria(id, nombre, descripcion, null);
         categorias.add(categoria);
     }
-    private void crearTienda(StringTokenizer st){
-        int id=Integer.parseInt(st.nextToken().strip());
-        String nombre=st.nextToken().strip();
-        String pasillo=st.nextToken().strip();
-        
-        Tienda tienda=new Tienda(id, nombre, pasillo, null);
+
+    private void crearTienda(StringTokenizer st) {
+        int id = Integer.parseInt(st.nextToken().strip());
+        String nombre = st.nextToken().strip();
+
+        Tienda tienda = new Tienda(id, nombre, null);
         agregarTiendas(tienda);
     }
-    private void crearProducto(StringTokenizer st){
-        int id=Integer.parseInt(st.nextToken().strip());
-        String nombre=st.nextToken().strip();
-        double precio=Double.parseDouble(st.nextToken().strip());
-        String descripcion=st.nextToken().strip();
-        String tienda=st.nextToken().strip();
-        
-        Producto producto=new Producto(id, nombre, precio, descripcion);
+
+    private void crearProducto(StringTokenizer st) {
+        int id = Integer.parseInt(st.nextToken().strip());
+        String nombre = st.nextToken().strip();
+        double precio = Double.parseDouble(st.nextToken().strip());
+        String descripcion = st.nextToken().strip();
+        String tienda = st.nextToken().strip();
+
+        Producto producto = new Producto(id, nombre, precio, descripcion);
         for (Tienda t : tiendas) {
-            if(t.getNombre().equalsIgnoreCase(tienda)){
+            if (t.getNombre().equalsIgnoreCase(tienda)) {
                 t.agregarProducto(producto);
             }
         }
@@ -148,17 +152,18 @@ public class Paginaprincipal {
     // M�todos para manipular el archivo de texto
     private void cargarArchivo(String nombre, int pos) {
         try {
-            File file = new File("./src/"+nombre+".txt");
+            File file = new File("./src/" + nombre + ".txt");
             Class<Paginaprincipal> clazz = Paginaprincipal.class;
-            InputStream inputStream = clazz.getResourceAsStream("/"+nombre+".txt");
+            InputStream inputStream = clazz.getResourceAsStream("/" + nombre + ".txt");
             if (file.exists()) {
                 readFromInputStream(inputStream, pos);
-            } else
+            } else {
                 JOptionPane.showMessageDialog(null,
                         "El archivo txt no existe");
+            }
         } catch (Exception x) {
             JOptionPane.showMessageDialog(null, "Se produjo un error= " + x);
         }
     }
-	
+
 }

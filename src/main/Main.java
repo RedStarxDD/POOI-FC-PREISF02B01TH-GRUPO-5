@@ -17,7 +17,6 @@ import gui.JPaginaPrincipal;
 import paginaPrincipal.Paginaprincipal;
 import gui.JPerfil;
 import perfil.Usuario;
-import tienda.Tiendass;
 
 public class Main {
 	public static void main(String[] args) {

@@ -1,3 +1,10 @@
-1;Plaza Vea;A1
-2;Oeschle;A2
-3;Inkafarma;A3
+1;Aruma
+2;BCP
+3;Bembos
+4;Bodytech
+5;Burgerking
+6;Calvin Klein
+7;China Wok
+8;Cineplanet
+9;Cinnabon
+10;Crocs

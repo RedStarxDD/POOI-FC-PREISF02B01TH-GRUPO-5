@@ -4,7 +4,10 @@
  */
 package gui;
 
+import categoria.Categoria;
 import java.awt.BorderLayout;
+import java.awt.event.ItemEvent;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 import paginaPrincipal.Paginaprincipal;
 import perfil.Usuario;
@@ -29,7 +32,7 @@ public class JHeader extends javax.swing.JFrame {
         JPaginaPrincipal p=new JPaginaPrincipal(pagina);
         mostrarPanel(p.getContent());
         
-        cbCategorias.addItem(pagina.getCategorias().get(0).getNombre());
+        mostrarCategorias();
     }
     
     private void mostrarPanel(JPanel panel){
@@ -40,6 +43,15 @@ public class JHeader extends javax.swing.JFrame {
         panelBody.add(panel, BorderLayout.CENTER);
         panelBody.revalidate();
         panelBody.repaint();       
+    }
+    
+    private void mostrarCategorias(){
+        DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+        for (Categoria c : pagina.getCategorias()) {
+            modelo.addElement(c.getNombre());
+        }
+        cbCategorias.setModel(modelo);
+        cbCategorias.setSelectedIndex(-1);
     }
 
     /**
@@ -59,7 +71,7 @@ public class JHeader extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         cbCategorias = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
+        btnTiendas = new javax.swing.JButton();
         panelBody = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,17 +156,24 @@ public class JHeader extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        cbCategorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categorías" }));
+        cbCategorias.setToolTipText("");
+        cbCategorias.setName(""); // NOI18N
+        cbCategorias.setRenderer(new PromptComboBoxRenderer("Categorías"));
+        cbCategorias.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbCategoriasItemStateChanged(evt);
+            }
+        });
         cbCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbCategoriasActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Tiendas");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnTiendas.setText("Tiendas");
+        btnTiendas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnTiendasActionPerformed(evt);
             }
         });
 
@@ -169,7 +188,7 @@ public class JHeader extends javax.swing.JFrame {
                     .addGroup(panelHeaderLayout.createSequentialGroup()
                         .addComponent(cbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)
+                        .addComponent(btnTiendas)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -181,9 +200,11 @@ public class JHeader extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTiendas, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        cbCategorias.getAccessibleContext().setAccessibleName("");
 
         panelBody.setPreferredSize(new java.awt.Dimension(720, 382));
 
@@ -239,18 +260,32 @@ public class JHeader extends javax.swing.JFrame {
 
     private void cbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriasActionPerformed
         // TODO add your handling code here:
+        int index=cbCategorias.getSelectedIndex();
+        
+        if(index>=0){
+            JCategoria c=new JCategoria();
+            c.getLblTitulo().setText(pagina.getCategorias().get(index).getNombre());
+            mostrarPanel(c.getContent());
+            //c.getLblPortada().setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/blobaruma.png"))); // NOI18N
 
+        }       
     }//GEN-LAST:event_cbCategoriasActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnTiendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTiendasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        JTienda t=new JTienda(pagina.getTiendas());
+        mostrarPanel(t.getContent());
+    }//GEN-LAST:event_btnTiendasActionPerformed
 
     private void imgLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgLogoMouseClicked
         // TODO add your handling code here:
         JPaginaPrincipal p=new JPaginaPrincipal(pagina);
         mostrarPanel(p.getContent());
     }//GEN-LAST:event_imgLogoMouseClicked
+
+    private void cbCategoriasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbCategoriasItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCategoriasItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -289,11 +324,11 @@ public class JHeader extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCuenta;
+    private javax.swing.JButton btnTiendas;
     private javax.swing.JComboBox<String> cbCategorias;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel panelBody;
