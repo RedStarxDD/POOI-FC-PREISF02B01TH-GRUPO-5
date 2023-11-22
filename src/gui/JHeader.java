@@ -8,9 +8,12 @@ import categoria.Categoria;
 import java.awt.BorderLayout;
 import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import paginaPrincipal.Paginaprincipal;
 import perfil.Usuario;
+import tienda.Tienda;
 
 /**
  *
@@ -53,6 +56,14 @@ public class JHeader extends javax.swing.JFrame {
         cbCategorias.setModel(modelo);
         cbCategorias.setSelectedIndex(-1);
     }
+    
+    private void limpiarImagenes(JPanel panel){
+        for (int i = 0; i < panel.getComponentCount(); i++) {
+            JLabel lblImagen=(JLabel)panel.getComponent(i);
+            lblImagen.setIcon(null);
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -107,7 +118,6 @@ public class JHeader extends javax.swing.JFrame {
         });
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setText("Buscar");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -264,9 +274,25 @@ public class JHeader extends javax.swing.JFrame {
         
         if(index>=0){
             JCategoria c=new JCategoria();
-            c.getLblTitulo().setText(pagina.getCategorias().get(index).getNombre());
+            Categoria categoria=pagina.getCategorias().get(index);
+            c.getLblTitulo().setText(categoria.getNombre());
+            
+            limpiarImagenes(c.getPanelImagenes());
+            int componentIndex=0;
+            for (Tienda t : categoria.getTiendas()) {
+                if(componentIndex<c.getPanelImagenes().getComponentCount()){
+                    JLabel lblImagen=(JLabel)c.getPanelImagenes().getComponent(componentIndex);
+                    try {
+                        ImageIcon img=new ImageIcon(getClass().getResource("/resources/tiendas/"+t.getID_TIENDA()+".png"));                  
+                        if(img!=null) lblImagen.setIcon(img);                
+                    } catch (Exception e) {
+                        System.out.println("No se encontró la img de la tienda con el id: "+t.getID_TIENDA());
+                    }
+                    componentIndex++;                                   
+                }
+            }
+            
             mostrarPanel(c.getContent());
-            //c.getLblPortada().setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/blobaruma.png"))); // NOI18N
 
         }       
     }//GEN-LAST:event_cbCategoriasActionPerformed

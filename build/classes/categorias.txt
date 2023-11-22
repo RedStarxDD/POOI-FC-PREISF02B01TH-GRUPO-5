@@ -11,5 +11,13 @@
 11;Oficina y útiles;a
 12;Herramientas;a
 13;Mejoramiento del Hogar;a
-14;Supermercado;a
-15;Otras categorías;a
+14;Supermercados;a
+15;Restaurantes;a
+16;Comida rápida;a
+17;Cafeterías;a
+18;Bancos;a
+19;Entretenimiento;a
+20;Dulces;a
+21;Boticas;a
+22;Accesorios;a
+99;Otras categorías;a

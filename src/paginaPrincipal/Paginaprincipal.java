@@ -122,16 +122,23 @@ public class Paginaprincipal {
         String nombre = st.nextToken().strip();
         String descripcion = st.nextToken().strip();
 
-        Categoria categoria = new Categoria(id, nombre, descripcion, null);
+        Categoria categoria = new Categoria(id, nombre, descripcion);
         categorias.add(categoria);
     }
 
     private void crearTienda(StringTokenizer st) {
         int id = Integer.parseInt(st.nextToken().strip());
         String nombre = st.nextToken().strip();
+        int idCategoria=Integer.parseInt(st.nextToken().strip());
 
         Tienda tienda = new Tienda(id, nombre, null);
         agregarTiendas(tienda);
+        
+        for (Categoria c : categorias) {
+            if(c.getId()==idCategoria){
+                c.agregarTienda(tienda);
+            }
+        }
     }
 
     private void crearProducto(StringTokenizer st) {

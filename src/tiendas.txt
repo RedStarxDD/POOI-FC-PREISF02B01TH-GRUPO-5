@@ -1,10 +1,61 @@
-1;Aruma
-2;BCP
-3;Bembos
-4;Bodytech
-5;Burgerking
-6;Calvin Klein
-7;China Wok
-8;Cineplanet
-9;Cinnabon
-10;Crocs
+1;Aruma;8
+2;BCP;18
+3;Bembos;16
+4;Bodytech;10
+5;Burgerking;16
+6;Calvin Klein;6
+7;China Wok;16
+8;Cineplanet;19
+9;Cinnabon;17
+10;Crocs;7
+11;Dunkin Donuts;17
+12;Econópticas;99
+13;Edo;15
+14;Fridays;15
+15;GMO;99
+16;Häagen-Dazs;20
+17;Happyland;19
+18;Havanna;17
+19;Inkafarma;21
+20;Interbank;18
+21;Isadora;22
+22;ishop;2
+23;Juicy Lucy;15
+24;Kayser;99
+25;KFC;16
+26;La Ibérica;20
+27;La Nacional;15
+28;LC Waikiki;6
+29;Longhorn;15
+30;MAC;2
+31;Mac Center;2
+32;Mango;6
+33;Mifarma;21
+34;Movistar;2
+35;Mr. Sushi;16
+36;Norky's;15
+37;Nutripoint;10
+38;Oechsle;6
+39;Otto Grill;15
+40;Pandora;99
+41;Phantom;2
+42;Pizza Hut;16
+43;Planet Chicken;16
+44;Plaza Vea;14
+45;Porta;11
+46;Quality Products;12
+47;Renzo Costa;6
+48;Ripley;6
+49;Rosatel;99
+50;Samsung;2
+51;Sarcletti;15
+52;Starbucks;17
+53;Tanta;15
+54;The Box;6
+55;TM;22
+56;Tommy Hilfiger;6
+57;Umarí;16
+58;Victoria's Secret;8
+59;Win;2
+60;Xiaomi;2
+61;Zonacel;2

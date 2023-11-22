@@ -12,12 +12,12 @@ public class Categoria {
     private String descripcion;
     private ArrayList<Tienda> tiendas;
 
-    public Categoria(int id, String nombre, String descripcion, ArrayList<Tienda> tiendas) {
+    public Categoria(int id, String nombre, String descripcion) {
         super();
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.tiendas = tiendas;
+        this.tiendas = new ArrayList<Tienda>();
     }
 
     public int getId() {

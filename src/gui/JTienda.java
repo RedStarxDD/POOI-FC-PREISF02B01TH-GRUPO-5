@@ -408,60 +408,31 @@ public class JTienda extends javax.swing.JPanel {
                     .addComponent(btnN)
                     .addComponent(btnÑ))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnY)
-                    .addComponent(btnZ)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnO)
-                    .addComponent(btnQ)
-                    .addComponent(btnR)
-                    .addComponent(btnS)
-                    .addComponent(btnT)
-                    .addComponent(btnU)
-                    .addComponent(btnV)
-                    .addComponent(btnW)
-                    .addComponent(btnX)
-                    .addComponent(btnP))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnY)
+                        .addComponent(btnZ)
+                        .addComponent(btnQ)
+                        .addComponent(btnR)
+                        .addComponent(btnS)
+                        .addComponent(btnT)
+                        .addComponent(btnU)
+                        .addComponent(btnV)
+                        .addComponent(btnW)
+                        .addComponent(btnX)
+                        .addComponent(btnP)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelImagenes.setBackground(new java.awt.Color(251, 181, 255));
-
-        javax.swing.GroupLayout panelImagenesLayout = new javax.swing.GroupLayout(panelImagenes);
-        panelImagenes.setLayout(panelImagenesLayout);
-        panelImagenesLayout.setHorizontalGroup(
-            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImagenesLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(panelImagenesLayout.createSequentialGroup()
-                        .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(lblImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(lblImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelImagenesLayout.createSequentialGroup()
-                        .addComponent(lblImagen4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(lblImagen5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)
-                        .addComponent(lblImagen6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        panelImagenesLayout.setVerticalGroup(
-            panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImagenesLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(panelImagenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImagen4, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImagen6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblImagen5, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        panelImagenes.setLayout(new java.awt.GridLayout(2, 3, 30, 30));
+        panelImagenes.add(lblImagen1);
+        panelImagenes.add(lblImagen2);
+        panelImagenes.add(lblImagen3);
+        panelImagenes.add(lblImagen4);
+        panelImagenes.add(lblImagen5);
+        panelImagenes.add(lblImagen6);
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -480,7 +451,7 @@ public class JTienda extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelImagenes, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
