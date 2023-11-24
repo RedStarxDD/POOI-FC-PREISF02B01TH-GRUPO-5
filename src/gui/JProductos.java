@@ -29,6 +29,7 @@ public class JProductos extends javax.swing.JFrame {
         return panelImagenes;
     }
 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -419,5 +420,6 @@ public class JProductos extends javax.swing.JFrame {
     private javax.swing.JPanel panel5;
     private javax.swing.JPanel panel6;
     private javax.swing.JPanel panelImagenes;
+
     // End of variables declaration//GEN-END:variables
 }
