@@ -6,12 +6,11 @@ package gui;
 
 import categoria.Categoria;
 import java.awt.BorderLayout;
-import java.awt.event.ItemEvent;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import paginaPrincipal.Paginaprincipal;
+import paginaPrincipal.PaginaPrincipal;
 import perfil.Usuario;
 import tienda.Tienda;
 
@@ -24,10 +23,10 @@ public class JHeader extends javax.swing.JFrame {
     /**
      * Creates new form JHeader
      */
-    private Paginaprincipal pagina;
+    private PaginaPrincipal pagina;
     private Usuario usuario;
     
-    public JHeader(Paginaprincipal paginaPrincipal) {
+    public JHeader(PaginaPrincipal paginaPrincipal) {
         initComponents();
         
         this.pagina=paginaPrincipal;
@@ -37,15 +36,23 @@ public class JHeader extends javax.swing.JFrame {
         
         mostrarCategorias();
     }
+
+    public PaginaPrincipal getPagina() {
+        return pagina;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
     
-    private void mostrarPanel(JPanel panel){
+    public void mostrarPanel(JPanel panel){
         panel.setLocation(0,0);
         panel.setSize(720, 382);
         
         panelBody.removeAll();
         panelBody.add(panel, BorderLayout.CENTER);
         panelBody.revalidate();
-        panelBody.repaint();       
+        panelBody.repaint();
     }
     
     private void mostrarCategorias(){
@@ -77,7 +84,7 @@ public class JHeader extends javax.swing.JFrame {
         panelHeader = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         imgLogo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnCarrito = new javax.swing.JButton();
         btnCuenta = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
@@ -96,14 +103,14 @@ public class JHeader extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/image.pngcarrito.png"))); // NOI18N
-        jButton1.setText("Carrito");
-        jButton1.setBorder(null);
-        jButton1.setPreferredSize(new java.awt.Dimension(80, 21));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCarrito.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnCarrito.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/image.pngcarrito.png"))); // NOI18N
+        btnCarrito.setText("Carrito");
+        btnCarrito.setBorder(null);
+        btnCarrito.setPreferredSize(new java.awt.Dimension(80, 21));
+        btnCarrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCarritoActionPerformed(evt);
             }
         });
 
@@ -145,7 +152,7 @@ public class JHeader extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addComponent(btnCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
         jPanel1Layout.setVerticalGroup(
@@ -161,7 +168,7 @@ public class JHeader extends javax.swing.JFrame {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jButton3))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                                .addComponent(btnCarrito, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
                                 .addComponent(btnCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
@@ -249,9 +256,12 @@ public class JHeader extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarritoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        JCarrito carrito=new JCarrito(pagina);
+        carrito.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCarritoActionPerformed
 
     private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
         // TODO add your handling code here:
@@ -273,7 +283,7 @@ public class JHeader extends javax.swing.JFrame {
         int index=cbCategorias.getSelectedIndex();
         
         if(index>=0){
-            JCategoria c=new JCategoria();
+            JCategoria c=new JCategoria(this);
             Categoria categoria=pagina.getCategorias().get(index);
             c.getLblTitulo().setText(categoria.getNombre());
             
@@ -284,7 +294,8 @@ public class JHeader extends javax.swing.JFrame {
                     JLabel lblImagen=(JLabel)c.getPanelImagenes().getComponent(componentIndex);
                     try {
                         ImageIcon img=new ImageIcon(getClass().getResource("/resources/tiendas/"+t.getID_TIENDA()+".png"));                  
-                        if(img!=null) lblImagen.setIcon(img);                
+                        if(img!=null) lblImagen.setIcon(img);
+                        lblImagen.setName(Integer.toString(t.getID_TIENDA()));
                     } catch (Exception e) {
                         System.out.println("No se encontró la img de la tienda con el id: "+t.getID_TIENDA());
                     }
@@ -349,11 +360,11 @@ public class JHeader extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCarrito;
     private javax.swing.JButton btnCuenta;
     private javax.swing.JButton btnTiendas;
     private javax.swing.JComboBox<String> cbCategorias;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;

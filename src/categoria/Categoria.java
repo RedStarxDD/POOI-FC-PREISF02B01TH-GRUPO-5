@@ -2,30 +2,23 @@ package categoria;
 
 import java.util.*;
 
-import carritoCompras.Producto;
 import tienda.Tienda;
 
 public class Categoria {
 
-    private int id;
+    private final int ID_CATEGORIA;
     private String nombre;
-    private String descripcion;
     private ArrayList<Tienda> tiendas;
 
-    public Categoria(int id, String nombre, String descripcion) {
+    public Categoria(int id, String nombre) {
         super();
-        this.id = id;
+        this.ID_CATEGORIA = id;
         this.nombre = nombre;
-        this.descripcion = descripcion;
         this.tiendas = new ArrayList<Tienda>();
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public int getID_CATEGORIA() {
+        return ID_CATEGORIA;
     }
 
     public String getNombre() {
@@ -34,14 +27,6 @@ public class Categoria {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
     }
 
     public ArrayList<Tienda> getTiendas() {
@@ -58,7 +43,7 @@ public class Categoria {
 
     @Override
     public String toString() {
-        return "Categoria [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", tiendas=" + tiendas
+        return "Categoria [id=" + ID_CATEGORIA + ", nombre=" + nombre + ", tiendas=" + tiendas
                 + "]";
     }
 }

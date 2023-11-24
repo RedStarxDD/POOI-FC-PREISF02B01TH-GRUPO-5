@@ -2,7 +2,7 @@ package paginaPrincipal;
 
 import java.util.ArrayList;
 
-import carritoCompras.Carritodecompras;
+import carritoCompras.Carrito;
 import carritoCompras.Horario;
 import carritoCompras.Producto;
 import categoria.Categoria;
@@ -12,22 +12,19 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Comparator;
-import java.util.List;
 import java.util.StringTokenizer;
-import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import perfil.Usuario;
 
-public class Paginaprincipal {
+public class PaginaPrincipal {
 
     private ArrayList<Categoria> categorias;
     private Usuario usuario;
-    private Carritodecompras carrito;
+    private Carrito carrito;
     private ArrayList<Tienda> tiendas;
     private Horario horario;
 
-    public Paginaprincipal(ArrayList<Categoria> categorias, Usuario usuario, Carritodecompras carrito,
+    public PaginaPrincipal(ArrayList<Categoria> categorias, Usuario usuario, Carrito carrito,
             ArrayList<Tienda> tienda, Horario horario) {
         super();
         this.categorias = categorias;
@@ -56,11 +53,11 @@ public class Paginaprincipal {
         this.usuario = usuario;
     }
 
-    public Carritodecompras getCarrito() {
+    public Carrito getCarrito() {
         return carrito;
     }
 
-    public void setCarrito(Carritodecompras carrito) {
+    public void setCarrito(Carrito carrito) {
         this.carrito = carrito;
     }
 
@@ -120,9 +117,8 @@ public class Paginaprincipal {
     private void crearCategoria(StringTokenizer st) {
         int id = Integer.parseInt(st.nextToken().strip());
         String nombre = st.nextToken().strip();
-        String descripcion = st.nextToken().strip();
 
-        Categoria categoria = new Categoria(id, nombre, descripcion);
+        Categoria categoria = new Categoria(id, nombre);
         categorias.add(categoria);
     }
 
@@ -135,7 +131,7 @@ public class Paginaprincipal {
         agregarTiendas(tienda);
         
         for (Categoria c : categorias) {
-            if(c.getId()==idCategoria){
+            if(c.getID_CATEGORIA()==idCategoria){
                 c.agregarTienda(tienda);
             }
         }
@@ -145,12 +141,11 @@ public class Paginaprincipal {
         int id = Integer.parseInt(st.nextToken().strip());
         String nombre = st.nextToken().strip();
         double precio = Double.parseDouble(st.nextToken().strip());
-        String descripcion = st.nextToken().strip();
-        String tienda = st.nextToken().strip();
+        int tienda = Integer.parseInt(st.nextToken().strip());
 
-        Producto producto = new Producto(id, nombre, precio, descripcion);
+        Producto producto = new Producto(id, nombre, precio);
         for (Tienda t : tiendas) {
-            if (t.getNombre().equalsIgnoreCase(tienda)) {
+            if (t.getID_TIENDA()==tienda) {
                 t.agregarProducto(producto);
             }
         }
@@ -160,7 +155,7 @@ public class Paginaprincipal {
     private void cargarArchivo(String nombre, int pos) {
         try {
             File file = new File("./src/" + nombre + ".txt");
-            Class<Paginaprincipal> clazz = Paginaprincipal.class;
+            Class<PaginaPrincipal> clazz = PaginaPrincipal.class;
             InputStream inputStream = clazz.getResourceAsStream("/" + nombre + ".txt");
             if (file.exists()) {
                 readFromInputStream(inputStream, pos);

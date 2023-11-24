@@ -7,14 +7,12 @@ public class Producto {
     private final int ID_PRODUCTO;
     private String nombre;
     private double precio;
-    private String descripción;
     private Tienda tienda;
 
-    public Producto(int ID_PRODUCTO, String nombre, double precio, String descripción) {
+    public Producto(int ID_PRODUCTO, String nombre, double precio) {
         this.ID_PRODUCTO = ID_PRODUCTO;
         this.nombre = nombre;
         this.precio = precio;
-        this.descripción = descripción;
     }
 
     public int getID_PRODUCTO() {
@@ -37,12 +35,12 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public Tienda getTienda() {
+        return tienda;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setTienda(Tienda tienda) {
+        this.tienda = tienda;
     }
 
     @Override
@@ -51,7 +49,6 @@ public class Producto {
                 "ID_PRODUCTO=" + ID_PRODUCTO +
                 ", nombre='" + nombre + '\'' +
                 ", precio=" + precio +
-                ", descripción='" + descripción + '\'' +
                 '}';
     }
 }

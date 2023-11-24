@@ -1,23 +1,23 @@
-1;Marcas de Rambla;a
-2;Tecnología;a
-3;Muebles;a
-4;Dormitorio;a
-5;Deportes;a
-6;Moda Mujer y Hombre;a
-7;Calzado;a
-8;Belleza;a
-9;Infantil;a
-10;Salud y Bienestar;a
-11;Oficina y útiles;a
-12;Herramientas;a
-13;Mejoramiento del Hogar;a
-14;Supermercados;a
-15;Restaurantes;a
-16;Comida rápida;a
-17;Cafeterías;a
-18;Bancos;a
-19;Entretenimiento;a
-20;Dulces;a
-21;Boticas;a
-22;Accesorios;a
-99;Otras categorías;a
+1;Marcas de Rambla
+2;Tecnología
+3;Muebles
+4;Dormitorio
+5;Deportes
+6;Moda Mujer y Hombre
+7;Calzado
+8;Belleza
+9;Infantil
+10;Salud y Bienestar
+11;Oficina y útiles
+12;Herramientas
+13;Mejoramiento del Hogar
+14;Supermercados
+15;Restaurantes
+16;Comida rápida
+17;Cafeterías
+18;Bancos
+19;Entretenimiento
+20;Dulces
+21;Boticas
+22;Accesorios
+99;Otras categorías

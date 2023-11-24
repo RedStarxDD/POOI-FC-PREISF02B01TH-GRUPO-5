@@ -1,6 +1,6 @@
 package main;
 
-import carritoCompras.Carritodecompras;
+import carritoCompras.Carrito;
 import carritoCompras.Direccion;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +14,7 @@ import gui.JHeader;
 import tienda.Tienda;
 import java.awt.EventQueue;
 import gui.JPaginaPrincipal;
-import paginaPrincipal.Paginaprincipal;
+import paginaPrincipal.PaginaPrincipal;
 import gui.JPerfil;
 import perfil.Usuario;
 
@@ -44,7 +44,7 @@ public class Main {
                 Carritodecompras carrito=new Carritodecompras(0, dir, hor);*/
                 
    		Usuario usuario=new Usuario(1, "Dante", "Uchofen", "dante.uchofen@usil.pe", "72750855", "960575676", 1, new Date());		
-		Paginaprincipal pagina=new Paginaprincipal(new ArrayList<Categoria>(), usuario, null, new ArrayList<Tienda>(), new Horario(new Date(), new Date(), new Date()));
+		PaginaPrincipal pagina=new PaginaPrincipal(new ArrayList<Categoria>(), usuario, null, new ArrayList<Tienda>(), new Horario(new Date(), new Date(), new Date()));
   		System.out.println(pagina.toString());
                            
                 EventQueue.invokeLater(new Runnable() {

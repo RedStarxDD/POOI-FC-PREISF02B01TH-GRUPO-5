@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/paginaPrincipal/Paginaprincipal.java</file>
-            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/main/Main.java</file>
-            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/gui/JHeader.java</file>
-            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/gui/JTienda.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/carritoCompras/Carrito.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/carritoCompras/ItemCarrito.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/carritoCompras/Direccion.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/carritoCompras/Producto.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/categoria/Categoria.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/carritoCompras/Horario.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/perfil/Usuario.java</file>
+            <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/paginaPrincipal/PaginaPrincipal.java</file>
             <file>file:/C:/Users/user/Documents/USIL/Ciclo%202/Programación%20Orientada%20a%20Objetos%20I/proyecto-final/src/tienda/Tienda.java</file>
         </group>
     </open-files>

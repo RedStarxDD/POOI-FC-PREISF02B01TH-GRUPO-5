@@ -94,8 +94,14 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblImagen1">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblImagen1MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblImagen2">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblImagen2MouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblImagen3">
             </Component>

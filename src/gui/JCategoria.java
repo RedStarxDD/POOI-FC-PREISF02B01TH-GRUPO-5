@@ -4,8 +4,11 @@
  */
 package gui;
 
+import carritoCompras.Producto;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import paginaPrincipal.PaginaPrincipal;
 
 /**
  *
@@ -16,8 +19,14 @@ public class JCategoria extends javax.swing.JFrame {
     /**
      * Creates new form JTest
      */
-    public JCategoria() {
+    
+    private JHeader header;
+    private PaginaPrincipal pagina;
+    
+    public JCategoria(JHeader h) {
         initComponents();
+        this.header=h;
+        this.pagina=header.getPagina();
     }
 
     public JPanel getContent() {
@@ -36,7 +45,29 @@ public class JCategoria extends javax.swing.JFrame {
         return panelImagenes;
     }
     
-    
+    private void mostrarProductos(JProductos productos, JLabel lbl){
+        int componentIndex=0;
+        for (int i = 0; i < pagina.getTiendas().get(Integer.parseInt(lbl.getName())-1).getProductos().size(); i++) {
+            Producto p=pagina.getTiendas().get(Integer.parseInt(lbl.getName())-1).getProductos().get(i);
+            
+            if(componentIndex<productos.getPanelImagenes().getComponentCount()){
+                JPanel panel=(JPanel)productos.getPanelImagenes().getComponent(componentIndex);
+                JLabel lblImagen=(JLabel)panel.getComponent(0);
+                JLabel lblNombre=(JLabel)panel.getComponent(1);
+                JLabel lblPrecio=(JLabel)panel.getComponent(2);
+                try {
+                    ImageIcon img=new ImageIcon(getClass().getResource("/resources/productos/"+p.getID_PRODUCTO()+".jpg"));                  
+                    if(img!=null) lblImagen.setIcon(img);
+                    lblNombre.setText(lblNombre.getText()+p.getNombre());
+                    lblPrecio.setText(lblPrecio.getText()+p.getPrecio());
+                    
+                } catch (Exception e) {
+                    System.out.println("No se encontró la img de la tienda con el id: "+p.getID_PRODUCTO());
+                }
+                componentIndex++;
+            }
+        }        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,7 +100,19 @@ public class JCategoria extends javax.swing.JFrame {
 
         panelImagenes.setBackground(new java.awt.Color(255, 204, 204));
         panelImagenes.setLayout(new java.awt.GridLayout(3, 3, 30, 30));
+
+        lblImagen1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen1MouseClicked(evt);
+            }
+        });
         panelImagenes.add(lblImagen1);
+
+        lblImagen2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen2MouseClicked(evt);
+            }
+        });
         panelImagenes.add(lblImagen2);
         panelImagenes.add(lblImagen3);
         panelImagenes.add(lblImagen4);
@@ -119,6 +162,20 @@ public class JCategoria extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblImagen1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen1MouseClicked
+        // TODO add your handling code here:
+        JProductos productos=new JProductos();
+        mostrarProductos(productos, lblImagen1);
+        header.mostrarPanel(productos.getContent());
+    }//GEN-LAST:event_lblImagen1MouseClicked
+
+    private void lblImagen2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen2MouseClicked
+        // TODO add your handling code here:
+        JProductos productos=new JProductos();
+        mostrarProductos(productos, lblImagen2);
+        header.mostrarPanel(productos.getContent());
+    }//GEN-LAST:event_lblImagen2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -150,7 +207,7 @@ public class JCategoria extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JCategoria().setVisible(true);
+                //new JCategoria().setVisible(true);
             }
         });
     }

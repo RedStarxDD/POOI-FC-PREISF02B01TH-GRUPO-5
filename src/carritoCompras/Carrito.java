@@ -3,18 +3,18 @@ package carritoCompras;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carritodecompras {
+public class Carrito {
 
     private List<ItemCarrito> items;
     private double total;
     private Direccion direccionEntrega;
     private Horario horarioEntrega;
 
-    public Carritodecompras(double total, Direccion direccionEntrega, Horario horarioEntrega) {
+    public Carrito() {
         this.items = new ArrayList<ItemCarrito>();
-        this.total = total;
-        this.direccionEntrega = direccionEntrega;
-        this.horarioEntrega = horarioEntrega;
+        this.total = 0;
+        this.direccionEntrega = null;
+        this.horarioEntrega = null;
     }
 
     public List<ItemCarrito> getItems() {
@@ -55,13 +55,13 @@ public class Carritodecompras {
     }
 
     private void calcularTotal() {
-		// TODO Auto-generated method stub
-		
-	}
+        // TODO Auto-generated method stub
 
-	public void eliminarItem(ItemCarrito item) {
+    }
+
+    public void eliminarItem(ItemCarrito item) {
         items.remove(item);
         calcularTotal();
     }
-		
-	} 
+
+}

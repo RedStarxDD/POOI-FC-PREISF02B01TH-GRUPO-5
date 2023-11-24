@@ -12,7 +12,7 @@ public class Tienda {
     private String nombre;
     private char inicial;
     private Horario horario;
-    private List<Producto> productos;
+    private ArrayList<Producto> productos;
 
     public Tienda(int ID_TIENDA, String nombre, Horario horario) {
         this.ID_TIENDA = ID_TIENDA;
@@ -50,11 +50,11 @@ public class Tienda {
         this.horario = horario;
     }
 
-    public List<Producto> getProductos() {
+    public ArrayList<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
     }
 
