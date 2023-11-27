@@ -59,7 +59,7 @@ public class JProductos extends javax.swing.JFrame {
                 JLabel lblNombre=(JLabel)panel.getComponent(1);
                 JLabel lblPrecio=(JLabel)panel.getComponent(2);
                 try {
-                    ImageIcon img=new ImageIcon(getClass().getResource("/resources/productos/"+p.getID_PRODUCTO()+".jpg"));                  
+                    ImageIcon img=new ImageIcon(getClass().getResource("/resources/productos/"+p.getID_PRODUCTO()+".png"));                  
                     if(img!=null) lblImagen.setIcon(img);
                     lblNombre.setText(p.getNombre());
                     lblPrecio.setText("S/. "+p.getPrecio());
@@ -146,6 +146,7 @@ public class JProductos extends javax.swing.JFrame {
         panel1.setPreferredSize(new java.awt.Dimension(244, 184));
 
         lblImagen1.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagen1.setOpaque(true);
         lblImagen1.setPreferredSize(new java.awt.Dimension(232, 120));
         lblImagen1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -192,6 +193,7 @@ public class JProductos extends javax.swing.JFrame {
         panelImagenes.add(panel1);
 
         lblImagen2.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagen2.setOpaque(true);
         lblImagen2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -220,7 +222,7 @@ public class JProductos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblImagen2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNombre2, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(lblNombre2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblPrecio2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -239,6 +241,7 @@ public class JProductos extends javax.swing.JFrame {
         panelImagenes.add(panel2);
 
         lblImagen3.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagen3.setOpaque(true);
         lblImagen3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -267,7 +270,7 @@ public class JProductos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblImagen3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblNombre3, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(lblNombre3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -286,6 +289,7 @@ public class JProductos extends javax.swing.JFrame {
         panelImagenes.add(panel3);
 
         lblImagen4.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagen4.setOpaque(true);
         lblImagen4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -333,6 +337,7 @@ public class JProductos extends javax.swing.JFrame {
         panelImagenes.add(panel4);
 
         lblImagen5.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagen5.setOpaque(true);
         lblImagen5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -380,6 +385,7 @@ public class JProductos extends javax.swing.JFrame {
         panelImagenes.add(panel5);
 
         lblImagen6.setBackground(new java.awt.Color(255, 255, 255));
+        lblImagen6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblImagen6.setOpaque(true);
         lblImagen6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -520,7 +526,7 @@ public class JProductos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new JProductos().setVisible(true);
+                new JProductos(null).setVisible(true);
             }
         });
     }
