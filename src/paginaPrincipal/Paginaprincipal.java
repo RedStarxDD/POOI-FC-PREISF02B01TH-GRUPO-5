@@ -29,7 +29,7 @@ public class PaginaPrincipal {
         super();
         this.categorias = categorias;
         this.usuario = usuario;
-        this.carrito = carrito;
+        this.carrito = new Carrito();
         this.tiendas = tienda;
         this.horario = horario;
         cargarArchivo("categorias", 1);

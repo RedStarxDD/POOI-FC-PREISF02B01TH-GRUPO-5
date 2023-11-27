@@ -20,11 +20,13 @@ public class JTienda extends javax.swing.JPanel {
      * Creates new form Tiendass
      */
     
-    ArrayList<Tienda> tiendas;
+    private Gui gui;
+    private ArrayList<Tienda> tiendas;
     
-    public JTienda(ArrayList<Tienda> t) {
+    public JTienda(Gui g) {
         initComponents();
-        this.tiendas=t;
+        this.gui=g;
+        this.tiendas=gui.getPagina().getTiendas();
     }
 
     public JPanel getContent() {
@@ -49,6 +51,7 @@ public class JTienda extends javax.swing.JPanel {
                 try {
                     ImageIcon img=new ImageIcon(getClass().getResource("/resources/tiendas/"+tienda.getID_TIENDA()+".png"));                  
                     if(img!=null) lblImagen.setIcon(img);                
+                    lblImagen.setName(Integer.toString(tienda.getID_TIENDA()));
                 } catch (Exception e) {
                     System.out.println("No se encontró la img de la tienda con el id: "+tienda.getID_TIENDA());
                 }
@@ -56,6 +59,14 @@ public class JTienda extends javax.swing.JPanel {
             }
         }       
     }
+    
+    private void mostrarProductos(JLabel lbl){
+        if(lbl.getName()!=null){
+            JProductos productos=new JProductos(gui);
+            productos.mostrarProductos(lbl);            
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -386,7 +397,7 @@ public class JTienda extends javax.swing.JPanel {
                         .addComponent(btnN)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnÑ)))
-                .addContainerGap(275, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,13 +437,62 @@ public class JTienda extends javax.swing.JPanel {
         );
 
         panelImagenes.setBackground(new java.awt.Color(251, 181, 255));
-        panelImagenes.setLayout(new java.awt.GridLayout(2, 3, 30, 30));
-        panelImagenes.add(lblImagen1);
-        panelImagenes.add(lblImagen2);
-        panelImagenes.add(lblImagen3);
-        panelImagenes.add(lblImagen4);
-        panelImagenes.add(lblImagen5);
-        panelImagenes.add(lblImagen6);
+        panelImagenes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblImagen1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen1.setToolTipText("");
+        lblImagen1.setPreferredSize(new java.awt.Dimension(140, 140));
+        lblImagen1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen1MouseClicked(evt);
+            }
+        });
+        panelImagenes.add(lblImagen1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+
+        lblImagen2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen2.setPreferredSize(new java.awt.Dimension(140, 140));
+        lblImagen2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen2MouseClicked(evt);
+            }
+        });
+        panelImagenes.add(lblImagen2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+
+        lblImagen3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen3.setPreferredSize(new java.awt.Dimension(140, 140));
+        lblImagen3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen3MouseClicked(evt);
+            }
+        });
+        panelImagenes.add(lblImagen3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+
+        lblImagen4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen4.setPreferredSize(new java.awt.Dimension(140, 140));
+        lblImagen4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen4MouseClicked(evt);
+            }
+        });
+        panelImagenes.add(lblImagen4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+
+        lblImagen5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen5.setPreferredSize(new java.awt.Dimension(140, 140));
+        lblImagen5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen5MouseClicked(evt);
+            }
+        });
+        panelImagenes.add(lblImagen5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
+
+        lblImagen6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen6.setPreferredSize(new java.awt.Dimension(140, 140));
+        lblImagen6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImagen6MouseClicked(evt);
+            }
+        });
+        panelImagenes.add(lblImagen6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, -1));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
@@ -601,6 +661,37 @@ public class JTienda extends javax.swing.JPanel {
         // TODO add your handling code here:
         mostrarImagenes('A');
     }//GEN-LAST:event_btnAActionPerformed
+
+    private void lblImagen1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen1MouseClicked
+        // TODO add your handling code here:
+        mostrarProductos(lblImagen1);
+    }//GEN-LAST:event_lblImagen1MouseClicked
+
+    private void lblImagen6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen6MouseClicked
+        // TODO add your handling code here:
+        mostrarProductos(lblImagen6);
+    }//GEN-LAST:event_lblImagen6MouseClicked
+
+    private void lblImagen5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen5MouseClicked
+        // TODO add your handling code here:
+        mostrarProductos(lblImagen5);
+    }//GEN-LAST:event_lblImagen5MouseClicked
+
+    private void lblImagen4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen4MouseClicked
+        // TODO add your handling code here:
+        mostrarProductos(lblImagen4);
+    }//GEN-LAST:event_lblImagen4MouseClicked
+
+    private void lblImagen3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen3MouseClicked
+        // TODO add your handling code here:
+        mostrarProductos(lblImagen3);
+
+    }//GEN-LAST:event_lblImagen3MouseClicked
+
+    private void lblImagen2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen2MouseClicked
+        // TODO add your handling code here:
+        mostrarProductos(lblImagen2);
+    }//GEN-LAST:event_lblImagen2MouseClicked
     
         /**
      * @param args the command line arguments

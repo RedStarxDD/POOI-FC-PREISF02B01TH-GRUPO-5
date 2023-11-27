@@ -1,61 +1,78 @@
-1;Aruma;8
-2;BCP;18
-3;Bembos;16
-4;Bodytech;10
-5;Burgerking;16
-6;Calvin Klein;6
-7;China Wok;16
-8;Cineplanet;19
-9;Cinnabon;17
-10;Crocs;7
-11;Dunkin Donuts;17
-12;Econópticas;99
-13;Edo;15
-14;Fridays;15
-15;GMO;99
-16;Häagen-Dazs;20
-17;Happyland;19
-18;Havanna;17
-19;Inkafarma;21
-20;Interbank;18
-21;Isadora;22
-22;ishop;2
-23;Juicy Lucy;15
-24;Kayser;99
-25;KFC;16
-26;La Ibérica;20
-27;La Nacional;15
-28;LC Waikiki;6
-29;Longhorn;15
-30;MAC;2
-31;Mac Center;2
-32;Mango;6
-33;Mifarma;21
-34;Movistar;2
-35;Mr. Sushi;16
-36;Norky's;15
-37;Nutripoint;10
-38;Oechsle;6
-39;Otto Grill;15
-40;Pandora;99
-41;Phantom;2
-42;Pizza Hut;16
-43;Planet Chicken;16
-44;Plaza Vea;14
-45;Porta;11
-46;Quality Products;12
-47;Renzo Costa;6
-48;Ripley;6
-49;Rosatel;99
-50;Samsung;2
-51;Sarcletti;15
-52;Starbucks;17
-53;Tanta;15
-54;The Box;6
-55;TM;22
-56;Tommy Hilfiger;6
-57;Umarí;16
-58;Victoria's Secret;8
-59;Win;2
-60;Xiaomi;2
-61;Zonacel;2
+1;Isadora;1
+2;Aldo;1
+3;Now;1;
+4;Lancaster;1
+5;TM;1
+6;Pandora;1
+7;Carati;1
+8;Anrigold;1
+9;Ten Ren;2
+10;Starbucks;2
+11;Cinnabon;2
+12;Sarcletti;2
+13;La Ibérica;2
+14;La Casa del Alfajor;2
+15;Dunkin Donuts;2
+16;L'Occitane;3
+17;Aruma;3
+18;Bath&BodyWorks;3
+19;Victoria's Secret;3
+20;Derma Shop;3
+21;La Roche-Posay;3
+22;Quality Products;3
+23;K'allma;3
+24;Crocs;4
+25;Paez;4
+26;Bruno Ferrini;4
+27;The athlete's foot;4
+28;Viale;4
+29;Footloose;4
+30;Ecco;4
+31;Bembos;5
+32;Pizza Hut;5
+33;Subway;5
+34;Pasquale;5
+35;Otto Grill;5
+36;Mr. Sushy;5
+37;KFC;5
+38;Adidas;6
+39;RFK;6
+40;Marathon;6
+41;Safari Drive;7
+42;Play!;7
+43;Happyland;7
+44;Cineplanet;7
+45;Coneypark;7
+46;Beso Francés;5
+47;China Wok;5
+48;Chilis;8
+49;Edo;8
+50;Fridays;8
+51;Juicy Lucy;8
+52;LongHorn;8
+53;Norky's;8
+54;Tanta;8
+55;Derma Shop;9
+56;Inkafarma;9
+57;Mifarma;9
+58;Nutripoint;9
+59;Interbank;10
+60;Izipay;10
+61;Western Union;10
+62;Bitel;11
+63;Movistar;11
+64;Win;11
+65;Plaza Vea;12
+66;Coolbox;13
+67;ishop;13
+68;Mac Center;13
+69;Xiaomi;13
+70;Phantom;13
+71;Samsung;13
+72;LC Waikiki;14
+73;Mango;14
+74;Pioner;14
+75;Calvin Klein;15
+76;Kayser;15
+77;Leonisa;15
+78;Ibero Librerías;99

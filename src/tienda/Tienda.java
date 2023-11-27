@@ -17,7 +17,7 @@ public class Tienda {
     public Tienda(int ID_TIENDA, String nombre, Horario horario) {
         this.ID_TIENDA = ID_TIENDA;
         this.nombre = nombre;
-        this.inicial=nombre.charAt(0);
+        this.inicial=Character.toUpperCase(nombre.charAt(0));
         this.horario = horario;
         this.productos = new ArrayList<Producto>();
     }

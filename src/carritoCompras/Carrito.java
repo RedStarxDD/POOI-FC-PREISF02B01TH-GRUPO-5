@@ -51,17 +51,18 @@ public class Carrito {
 
     public void agregarItem(ItemCarrito item) {
         items.add(item);
-        calcularTotal();
-    }
-
-    private void calcularTotal() {
-        // TODO Auto-generated method stub
-
+        this.total+=item.getSubtotal();
     }
 
     public void eliminarItem(ItemCarrito item) {
-        items.remove(item);
-        calcularTotal();
+        items.remove(item);        
     }
 
+    @Override
+    public String toString() {
+        return "Carrito [items=" + items + ", total=" + total + ", direccionEntrega=" + direccionEntrega + ", horarioEntrega=" + horarioEntrega
+                + "]";
+    }
+    
+    
 }

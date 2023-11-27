@@ -1,23 +1,16 @@
-1;Marcas de Rambla
-2;Tecnología
-3;Muebles
-4;Dormitorio
-5;Deportes
-6;Moda Mujer y Hombre
-7;Calzado
-8;Belleza
-9;Infantil
-10;Salud y Bienestar
-11;Oficina y útiles
-12;Herramientas
-13;Mejoramiento del Hogar
-14;Supermercados
-15;Restaurantes
-16;Comida rápida
-17;Cafeterías
-18;Bancos
-19;Entretenimiento
-20;Dulces
-21;Boticas
-22;Accesorios
+1;Accesorios
+2;Bebidas y postres
+3;Belleza y cuidado
+4;Calzado
+5;Comida rápida
+6;Deporte
+7;Entretenimiento
+8;Restaurantes
+9;Salud
+10;Bancos
+11;Celulares e internet
+12;Supermercados
+13;Tecnología
+14;Moda masculina y femenina
+15;Ropa interior y lencería
 99;Otras categorías

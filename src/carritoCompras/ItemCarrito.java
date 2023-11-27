@@ -26,10 +26,17 @@ public class ItemCarrito {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+        this.subtotal+=producto.getPrecio();
     }
 
     public double getSubtotal() {
         return subtotal;
+    }
+    
+    @Override
+    public String toString() {
+        return "ItemCarrito [producto=" + producto + ", cantidad=" + cantidad + ", subtotal=" + subtotal
+                + "]";
     }
 
 }
