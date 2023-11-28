@@ -6,7 +6,6 @@
 package gui;
 
 import javax.swing.JPanel;
-import paginaPrincipal.PaginaPrincipal;
 
 /**
  *
@@ -18,11 +17,8 @@ public class JPaginaPrincipal extends javax.swing.JFrame {
      * Creates new form PaginaP
      */
     
-    private PaginaPrincipal pagina;
-    
-    public JPaginaPrincipal(PaginaPrincipal p) {
+    public JPaginaPrincipal() {
         initComponents();
-        this.pagina=p;
     }
     
     public JPanel getContent() {

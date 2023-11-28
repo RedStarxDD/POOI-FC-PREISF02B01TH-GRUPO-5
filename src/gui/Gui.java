@@ -4,7 +4,8 @@
  */
 package gui;
 
-import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import paginaPrincipal.PaginaPrincipal;
 
 /**
@@ -34,5 +35,17 @@ public class Gui {
         this.header = header;
     }
     
+    public void limpiarImagenes(JPanel panel){
+        for (int i = 0; i < panel.getComponentCount(); i++) {
+            JLabel lblImagen=(JLabel)panel.getComponent(i);
+            lblImagen.setIcon(null);
+        }
+    }
     
+    public void mostrarProductos(JLabel lbl){
+        if(lbl.getName()!=null){
+            JProductos productos=new JProductos(this);
+            productos.mostrarImagenes(lbl);                  
+        }
+    }
 }

@@ -39,7 +39,7 @@ public class JProductos extends javax.swing.JFrame {
         return content;
     }
     
-    public void mostrarProductos(JLabel lbl){
+    public void mostrarImagenes(JLabel lbl){
         int componentIndex=0;
         
         for (Tienda tienda : gui.getPagina().getTiendas()) {
@@ -526,7 +526,7 @@ public class JProductos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JProductos(null).setVisible(true);
+                //new JProductos(null).setVisible(true);
             }
         });
     }

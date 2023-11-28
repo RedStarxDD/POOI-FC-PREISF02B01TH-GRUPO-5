@@ -52,7 +52,6 @@
 52;LongHorn;8
 53;Norky's;8
 54;Tanta;8
-55;Derma Shop;9
 56;Inkafarma;9
 57;Mifarma;9
 58;Nutripoint;9

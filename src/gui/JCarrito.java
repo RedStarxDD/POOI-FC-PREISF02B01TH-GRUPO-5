@@ -6,10 +6,11 @@ package gui;
 
 import carritoCompras.ItemCarrito;
 import carritoCompras.Producto;
+import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import paginaPrincipal.PaginaPrincipal;
 
 /**
  *
@@ -21,29 +22,29 @@ public class JCarrito extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     
-    private PaginaPrincipal pagina;
+    private Gui gui;
     
-    public JCarrito(PaginaPrincipal p) {
+    public JCarrito(Gui g) {
         initComponents();
-        this.pagina=p;
+        this.gui=g;
         agregarProductos();
     }
     
     private void agregarProductos(){
         int componentIndex=0;
         
-        for (ItemCarrito item : pagina.getCarrito().getItems()) {
+        for (ItemCarrito item : gui.getPagina().getCarrito().getItems()) {
             Producto p=item.getProducto();
             
             if(componentIndex<panelProductos.getComponentCount()){
                 JPanel panel=(JPanel)panelProductos.getComponent(componentIndex);
                 JLabel lblNombre=(JLabel)panel.getComponent(0);
                 JLabel lblPrecio=(JLabel)panel.getComponent(1);                
-                JSpinner spinPrecio=(JSpinner)panel.getComponent(2);
+                JLabel lblCantidad=(JLabel)panel.getComponent(2);
                 try {
                     lblNombre.setText("<html>"+p.getNombre()+"</html>");
                     lblPrecio.setText("S/. "+p.getPrecio());
-                    spinPrecio.setValue(item.getCantidad());
+                    lblCantidad.setText("x"+item.getCantidad());
                 } catch (Exception e) {
                     System.out.println("No se encontró la img de la tienda con el id: "+p.getID_PRODUCTO());
                 }
@@ -51,8 +52,8 @@ public class JCarrito extends javax.swing.JFrame {
             }
         }
         
-        lblSubtotal.setText("S./ "+pagina.getCarrito().getTotal());
-        lblTotal.setText("S/. "+(pagina.getCarrito().getTotal()+5.0));
+        lblSubtotal.setText("S./ "+gui.getPagina().getCarrito().getTotal());
+        lblTotal.setText("S/. "+(gui.getPagina().getCarrito().getTotal()+5.0));
     }
 
     /**
@@ -78,25 +79,38 @@ public class JCarrito extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jSpinner2 = new javax.swing.JSpinner();
         jPanel8 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnEnviar = new javax.swing.JButton();
         panelProductos = new javax.swing.JPanel();
         panelProducto1 = new javax.swing.JPanel();
         lblNombreProducto1 = new javax.swing.JLabel();
         lblPrecioProducto1 = new javax.swing.JLabel();
-        spinProducto1 = new javax.swing.JSpinner();
+        lblCantidad1 = new javax.swing.JLabel();
         panelProducto2 = new javax.swing.JPanel();
         lblNombreProducto2 = new javax.swing.JLabel();
         lblPrecioProducto2 = new javax.swing.JLabel();
-        spinProducto2 = new javax.swing.JSpinner();
+        lblCantidad2 = new javax.swing.JLabel();
         panelProducto3 = new javax.swing.JPanel();
         lblNombreProducto3 = new javax.swing.JLabel();
         lblPrecioProducto3 = new javax.swing.JLabel();
-        spinProducto3 = new javax.swing.JSpinner();
+        lblCantidad3 = new javax.swing.JLabel();
+        panelProducto4 = new javax.swing.JPanel();
+        lblNombreProducto4 = new javax.swing.JLabel();
+        lblPrecioProducto4 = new javax.swing.JLabel();
+        lblCantidad4 = new javax.swing.JLabel();
+        panelProducto5 = new javax.swing.JPanel();
+        lblNombreProducto5 = new javax.swing.JLabel();
+        lblPrecioProducto5 = new javax.swing.JLabel();
+        lblCantidad5 = new javax.swing.JLabel();
+        panelProducto6 = new javax.swing.JPanel();
+        lblNombreProducto6 = new javax.swing.JLabel();
+        lblPrecioProducto6 = new javax.swing.JLabel();
+        lblCantidad6 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -182,6 +196,13 @@ public class JCarrito extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("¿Dónde recibirás tu pedido?");
 
+        jTextField6.setColumns(1);
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -210,6 +231,11 @@ public class JCarrito extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Resumen de carrito:");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel5.setText("<html>Solo se muestran los 6 primeros productos</html>");
+        jLabel5.setToolTipText("");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -217,7 +243,9 @@ public class JCarrito extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +253,7 @@ public class JCarrito extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,8 +292,13 @@ public class JCarrito extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Enviar Pedido");
+        btnEnviar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnEnviar.setText("Enviar Pedido");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -272,57 +306,97 @@ public class JCarrito extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelProductos.setBackground(new java.awt.Color(255, 255, 255));
         panelProductos.setLayout(new javax.swing.BoxLayout(panelProductos, javax.swing.BoxLayout.Y_AXIS));
 
-        panelProducto1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelProducto1.setLayout(new java.awt.GridLayout(1, 3, 25, 0));
 
         lblNombreProducto1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblNombreProducto1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblNombreProducto1.setToolTipText("");
         lblNombreProducto1.setAlignmentX(0.5F);
         lblNombreProducto1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        panelProducto1.add(lblNombreProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 128, 50));
+        panelProducto1.add(lblNombreProducto1);
 
         lblPrecioProducto1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPrecioProducto1.setToolTipText("");
-        panelProducto1.add(lblPrecioProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 60, 20));
+        panelProducto1.add(lblPrecioProducto1);
 
-        spinProducto1.setToolTipText("");
-        panelProducto1.add(spinProducto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 43, -1));
+        lblCantidad1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto1.add(lblCantidad1);
 
         panelProductos.add(panelProducto1);
 
-        panelProducto2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelProducto2.setLayout(new java.awt.GridLayout(1, 3, 25, 0));
 
         lblNombreProducto2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblNombreProducto2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelProducto2.add(lblNombreProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 128, 50));
-        panelProducto2.add(lblPrecioProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 60, 20));
-        panelProducto2.add(spinProducto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 43, -1));
+        panelProducto2.add(lblNombreProducto2);
+        panelProducto2.add(lblPrecioProducto2);
+
+        lblCantidad2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto2.add(lblCantidad2);
 
         panelProductos.add(panelProducto2);
 
-        panelProducto3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelProducto3.setLayout(new java.awt.GridLayout(1, 3, 25, 0));
 
         lblNombreProducto3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         lblNombreProducto3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        panelProducto3.add(lblNombreProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 128, 50));
-        panelProducto3.add(lblPrecioProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 60, 20));
-        panelProducto3.add(spinProducto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 43, -1));
+        panelProducto3.add(lblNombreProducto3);
+        panelProducto3.add(lblPrecioProducto3);
+
+        lblCantidad3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto3.add(lblCantidad3);
 
         panelProductos.add(panelProducto3);
+
+        panelProducto4.setLayout(new java.awt.GridLayout(1, 3, 25, 0));
+
+        lblNombreProducto4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lblNombreProducto4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto4.add(lblNombreProducto4);
+        panelProducto4.add(lblPrecioProducto4);
+
+        lblCantidad4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto4.add(lblCantidad4);
+
+        panelProductos.add(panelProducto4);
+
+        panelProducto5.setLayout(new java.awt.GridLayout(1, 3, 25, 0));
+
+        lblNombreProducto5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lblNombreProducto5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto5.add(lblNombreProducto5);
+        panelProducto5.add(lblPrecioProducto5);
+
+        lblCantidad5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto5.add(lblCantidad5);
+
+        panelProductos.add(panelProducto5);
+
+        panelProducto6.setLayout(new java.awt.GridLayout(1, 3, 25, 0));
+
+        lblNombreProducto6.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        lblNombreProducto6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto6.add(lblNombreProducto6);
+        panelProducto6.add(lblPrecioProducto6);
+
+        lblCantidad6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        panelProducto6.add(lblCantidad6);
+
+        panelProductos.add(panelProducto6);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -403,7 +477,7 @@ public class JCarrito extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelProductos, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -446,10 +520,20 @@ public class JCarrito extends javax.swing.JFrame {
 
     private void btnLogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoActionPerformed
         // TODO add your handling code here:
-        JHeader header=new JHeader(pagina);
+        JHeader header=new JHeader(gui.getPagina());
         header.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLogoActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Pedido enviado");
+        dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -488,8 +572,8 @@ public class JCarrito extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnLogo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -499,6 +583,7 @@ public class JCarrito extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -513,22 +598,34 @@ public class JCarrito extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblCantidad1;
+    private javax.swing.JLabel lblCantidad2;
+    private javax.swing.JLabel lblCantidad3;
+    private javax.swing.JLabel lblCantidad4;
+    private javax.swing.JLabel lblCantidad5;
+    private javax.swing.JLabel lblCantidad6;
     private javax.swing.JLabel lblEnvio;
     private javax.swing.JLabel lblNombreProducto1;
     private javax.swing.JLabel lblNombreProducto2;
     private javax.swing.JLabel lblNombreProducto3;
+    private javax.swing.JLabel lblNombreProducto4;
+    private javax.swing.JLabel lblNombreProducto5;
+    private javax.swing.JLabel lblNombreProducto6;
     private javax.swing.JLabel lblPrecioProducto1;
     private javax.swing.JLabel lblPrecioProducto2;
     private javax.swing.JLabel lblPrecioProducto3;
+    private javax.swing.JLabel lblPrecioProducto4;
+    private javax.swing.JLabel lblPrecioProducto5;
+    private javax.swing.JLabel lblPrecioProducto6;
     private javax.swing.JLabel lblSubtotal;
     private javax.swing.JLabel lblTotal;
     private javax.swing.JPanel panelProducto1;
     private javax.swing.JPanel panelProducto2;
     private javax.swing.JPanel panelProducto3;
+    private javax.swing.JPanel panelProducto4;
+    private javax.swing.JPanel panelProducto5;
+    private javax.swing.JPanel panelProducto6;
     private javax.swing.JPanel panelProductos;
-    private javax.swing.JSpinner spinProducto1;
-    private javax.swing.JSpinner spinProducto2;
-    private javax.swing.JSpinner spinProducto3;
     // End of variables declaration//GEN-END:variables
 }
 

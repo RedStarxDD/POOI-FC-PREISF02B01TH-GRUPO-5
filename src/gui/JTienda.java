@@ -32,16 +32,9 @@ public class JTienda extends javax.swing.JPanel {
     public JPanel getContent() {
         return content;
     }
-    
-    private void limpiarImagenes(){
-        for (int i = 0; i < panelImagenes.getComponentCount(); i++) {
-            JLabel lblImagen=(JLabel)panelImagenes.getComponent(i);
-            lblImagen.setIcon(null);
-        }
-    }
-    
+        
     private void mostrarImagenes(char letra){
-        limpiarImagenes();
+        gui.limpiarImagenes(panelImagenes);
         int componentIndex=0;
         
         for (int i = 0; i < tiendas.size(); i++) {
@@ -59,14 +52,7 @@ public class JTienda extends javax.swing.JPanel {
             }
         }       
     }
-    
-    private void mostrarProductos(JLabel lbl){
-        if(lbl.getName()!=null){
-            JProductos productos=new JProductos(gui);
-            productos.mostrarProductos(lbl);            
-        }
-    }
-    
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -664,33 +650,33 @@ public class JTienda extends javax.swing.JPanel {
 
     private void lblImagen1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen1MouseClicked
         // TODO add your handling code here:
-        mostrarProductos(lblImagen1);
+        gui.mostrarProductos(lblImagen1);
     }//GEN-LAST:event_lblImagen1MouseClicked
 
     private void lblImagen6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen6MouseClicked
         // TODO add your handling code here:
-        mostrarProductos(lblImagen6);
+        gui.mostrarProductos(lblImagen6);
     }//GEN-LAST:event_lblImagen6MouseClicked
 
     private void lblImagen5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen5MouseClicked
         // TODO add your handling code here:
-        mostrarProductos(lblImagen5);
+        gui.mostrarProductos(lblImagen5);
     }//GEN-LAST:event_lblImagen5MouseClicked
 
     private void lblImagen4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen4MouseClicked
         // TODO add your handling code here:
-        mostrarProductos(lblImagen4);
+        gui.mostrarProductos(lblImagen4);
     }//GEN-LAST:event_lblImagen4MouseClicked
 
     private void lblImagen3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen3MouseClicked
         // TODO add your handling code here:
-        mostrarProductos(lblImagen3);
+        gui.mostrarProductos(lblImagen3);
 
     }//GEN-LAST:event_lblImagen3MouseClicked
 
     private void lblImagen2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagen2MouseClicked
         // TODO add your handling code here:
-        mostrarProductos(lblImagen2);
+        gui.mostrarProductos(lblImagen2);
     }//GEN-LAST:event_lblImagen2MouseClicked
     
         /**

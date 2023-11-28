@@ -4,14 +4,12 @@
  */
 package gui;
 
+import otros.PromptComboBoxRenderer;
 import categoria.Categoria;
 import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import paginaPrincipal.PaginaPrincipal;
-import tienda.Tienda;
 
 /**
  *
@@ -22,9 +20,7 @@ public class JHeader extends javax.swing.JFrame {
     /**
      * Creates new form JHeader
      */
-    //private PaginaPrincipal pagina;
     private Gui gui;
-    //private Usuario usuario;
     
     public JHeader(PaginaPrincipal paginaPrincipal) {
         initComponents();
@@ -33,9 +29,9 @@ public class JHeader extends javax.swing.JFrame {
         gui.setPagina(paginaPrincipal);
         gui.setHeader(this);
         
-        JPaginaPrincipal p=new JPaginaPrincipal(gui.getPagina());
+        JPaginaPrincipal p=new JPaginaPrincipal();
         mostrarPanel(p.getContent());       
-        mostrarCategorias();
+        mostrarcbCategorias();
     }
     
     public void mostrarPanel(JPanel panel){
@@ -48,7 +44,7 @@ public class JHeader extends javax.swing.JFrame {
         panelBody.repaint();
     }
     
-    private void mostrarCategorias(){
+    private void mostrarcbCategorias(){
         DefaultComboBoxModel modelo=new DefaultComboBoxModel();
         for (Categoria c : gui.getPagina().getCategorias()) {
             modelo.addElement(c.getNombre());
@@ -56,14 +52,6 @@ public class JHeader extends javax.swing.JFrame {
         cbCategorias.setModel(modelo);
         cbCategorias.setSelectedIndex(-1);
     }
-    
-    private void limpiarImagenes(JPanel panel){
-        for (int i = 0; i < panel.getComponentCount(); i++) {
-            JLabel lblImagen=(JLabel)panel.getComponent(i);
-            lblImagen.setIcon(null);
-        }
-    }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -227,7 +215,7 @@ public class JHeader extends javax.swing.JFrame {
 
     private void btnCarritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCarritoActionPerformed
         // TODO add your handling code here:
-        JCarrito carrito=new JCarrito(gui.getPagina());
+        JCarrito carrito=new JCarrito(gui);
         carrito.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCarritoActionPerformed
@@ -236,7 +224,6 @@ public class JHeader extends javax.swing.JFrame {
         // TODO add your handling code here:
         JPerfil p=new JPerfil(gui);
         mostrarPanel(p.getContent());
-        //dispose();
     }//GEN-LAST:event_btnCuentaActionPerformed
 
     private void cbCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCategoriasActionPerformed
@@ -245,27 +232,15 @@ public class JHeader extends javax.swing.JFrame {
         
         if(index>=0){
             JCategoria c=new JCategoria(gui);
-            Categoria categoria=gui.getPagina().getCategorias().get(index);
-            c.getLblTitulo().setText(categoria.getNombre());
+            Categoria categoria=null;
             
-            limpiarImagenes(c.getPanelImagenes());
-            int componentIndex=0;
-            for (Tienda t : categoria.getTiendas()) {
-                if(componentIndex<c.getPanelImagenes().getComponentCount()){
-                    JLabel lblImagen=(JLabel)c.getPanelImagenes().getComponent(componentIndex);
-                    try {
-                        ImageIcon img=new ImageIcon(getClass().getResource("/resources/tiendas/"+t.getID_TIENDA()+".png"));                  
-                        if(img!=null) lblImagen.setIcon(img);
-                        lblImagen.setName(Integer.toString(t.getID_TIENDA()));
-                    } catch (Exception e) {
-                        System.out.println("No se encontró la img de la tienda con el id: "+t.getID_TIENDA());
-                    }
-                    componentIndex++;                                   
+            for (Categoria cat : gui.getPagina().getCategorias()) {
+                if(cat.getNombre().equalsIgnoreCase(cbCategorias.getModel().getElementAt(index))){
+                    categoria=cat;
+                    break;
                 }
             }
-            
-            mostrarPanel(c.getContent());
-
+            c.mostrarImagenes(categoria);
         }       
     }//GEN-LAST:event_cbCategoriasActionPerformed
 
@@ -277,7 +252,7 @@ public class JHeader extends javax.swing.JFrame {
 
     private void imgLogoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgLogoMouseClicked
         // TODO add your handling code here:
-        JPaginaPrincipal p=new JPaginaPrincipal(gui.getPagina());
+        JPaginaPrincipal p=new JPaginaPrincipal();
         mostrarPanel(p.getContent());
     }//GEN-LAST:event_imgLogoMouseClicked
 

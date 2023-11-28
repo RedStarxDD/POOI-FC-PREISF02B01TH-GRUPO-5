@@ -24,13 +24,12 @@ public class PaginaPrincipal {
     private ArrayList<Tienda> tiendas;
     private Horario horario;
 
-    public PaginaPrincipal(ArrayList<Categoria> categorias, Usuario usuario, Carrito carrito,
-            ArrayList<Tienda> tienda, Horario horario) {
+    public PaginaPrincipal(Usuario usuario, Horario horario) {
         super();
-        this.categorias = categorias;
+        this.categorias = new ArrayList<Categoria>();
         this.usuario = usuario;
         this.carrito = new Carrito();
-        this.tiendas = tienda;
+        this.tiendas = new ArrayList<Tienda>();
         this.horario = horario;
         cargarArchivo("categorias", 1);
         cargarArchivo("tiendas", 2);

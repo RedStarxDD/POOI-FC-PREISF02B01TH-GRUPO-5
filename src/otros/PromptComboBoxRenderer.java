@@ -1,10 +1,10 @@
-package gui;
+package otros;
 
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.plaf.basic.*;
 
-class PromptComboBoxRenderer extends BasicComboBoxRenderer
+public class PromptComboBoxRenderer extends BasicComboBoxRenderer
 {
 	private String prompt;
 
