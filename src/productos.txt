@@ -1,0 +1,56 @@
+1;Módem;130.00;63
+2;Reloj Pandora;300.00;6
+3;Audífonos Bonse;689.00;70
+4;Xiami 11 Lite;599.90;69
+5;TV Samsung;1376.00;71
+6;iPhone 13;2100.00;67
+7;Audífonos Sony;219.00;70
+8;Máquina de entrenamiento;499.90;40
+9;Banda elástica;30.50;38
+10;Mini-pesas;19.90;40
+11;Caminadora;550.00;40
+12;Pesas;49.90;38
+13;Conjunto de ropa;55.00;75
+14;Gorro;35.00;75
+15;Media docena de donuts;24.00;15
+16;Alfajor;4.00;14
+17;Café mocha alto;12.00;10
+18;Helado 1L;15.00;65
+19;Parrilla personal;15.00;35
+20;Pizza mediana;24.00;32
+21;Combo rollo de canela + bebida;12.00;11
+22;Arroz chaufa + gaseosa;12.00;47
+23;5 makis;15.00;36
+24;Combo mega 6 piezas;40.00;37
+25;Hamburguesa angus;30.00;51
+26;Clásica + papas + gaseosa;15.00;31
+27;Crepé cesar;13.00;46
+28;Freidora de aire 3L;129.90;65
+29;Olla arrocera;89.90;65
+30;Aspiradora robot;599.90;69
+31;Licuadora Oster;139.90;65
+32;Jabón facial;59.90;17
+33;Crema facial;69.90;20
+34;Energizante;69.90;56
+35;Cicatricure;29.90;56
+36;Suplemento;59.90;57
+37;Pijama infantil;39.90;72
+38;Conjunto intantil;39.90;73
+39;Blazer;200.00;74
+40;Polera;79.90;73
+41;Jeans;39.90;72
+42;Zapatillas Adidas;199.90;29
+43;Pastillas de chocolate;15.00;13
+44;Botas;79.90;29
+45;Tacones;59.90;28
+46;Sandalias;39.90;28
+47;Zapatillas Nike;299.90;27
+48;Rizador;20.00;19
+49;Base;59.90;23
+50;Labial;39.90;21
+51;Colonia;19.90;17
+52;Samsung Galaxy;399.90;62
+53;Calzonzillos;19.90;75
+54;Conjunto ropa interior;39.90;75
+55;Conjunto ropa interior femenina;39.90;76
+56;Ropa interior femenina;19.90;76

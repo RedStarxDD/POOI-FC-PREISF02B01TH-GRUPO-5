@@ -1,0 +1,16 @@
+1;Accesorios
+2;Bebidas y postres
+3;Belleza y cuidado
+4;Calzado
+5;Comida rápida
+6;Deporte
+7;Entretenimiento
+8;Restaurantes
+9;Salud
+10;Bancos
+11;Celulares e internet
+12;Supermercados
+13;Tecnología
+14;Moda masculina y femenina
+15;Ropa interior y lencería
+99;Otras categorías
